@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Eatlykeagles</title>
+
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <style>
+	
+	.navbar-inverse{ background-color:transparent;};
+	
+	</style>
+    
+
+</head>
+
+<body>
+
+<ul class="cb-slideshow">
+            <li><span>Image 01</span><div></div></li>
+            <li><span>Image 02</span><div></div></li>
+            <li><span>Image 03</span><div></div></li>
+            <li><span>Image 04</span><div></div></li>
+            <li><span>Image 05</span><div></div></li>
+            <li><span>Image 06</span><div>></div></li>
+        </ul>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    
+    </div>
+    <div class="navbar-collapse collapse" id="searchbar">
+     
+       <ul class="nav navbar-nav navbar-right" style="margin-right:40px;">
+        <li><p  class="navbar-text">Already have an account?</p></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b style="color:#FFF; font-size:18px;">Login</b> <span class="caret"></span></a>
+			<ul id="login-dp" class="dropdown-menu">
+				<li>
+					 <div class="row">
+							<div class="col-md-12">
+								Login via
+								<div class="social-buttons">
+									<a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
+									<a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
+								</div>
+                                or
+								 <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+										<div class="form-group">
+											 <label class="sr-only" for="exampleInputEmail2">Email address</label>
+											 <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
+										</div>
+										<div class="form-group">
+											 <label class="sr-only" for="exampleInputPassword2">Password</label>
+											 <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+                                             <div class="help-block text-right"><a href="">Forget the password ?</a></div>
+										</div>
+										<div class="form-group">
+											 <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+										</div>
+										<div class="checkbox">
+											 <label>
+											 <input type="checkbox"> keep me logged-in
+											 </label>
+										</div>
+								 </form>
+							</div>
+							<div class="bottom text-center">
+								New here ? <a href="signup.html"><b>Join Us</b></a>
+							</div>
+					 </div>
+				</li>
+			</ul>
+        </li>
+      </ul>
+     
+     
+     
+     
+
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <form action="" enctype="" method="post"><input name="" type="hidden" value="" />    <div style="margin-top:90px;" class="intro-header">
+
+    <div class="container">
+    <div class="intro-message" style="text-align: center; z-index:999; position:relative;">
+                <img class="img-responsive center-block" src="images/indexLogo.png" />
+                <hr class="intro-divider" style="width:380px;">
+                <div class="row">
+
+                    <div class="col-md-offset-4 col-md-offset-4 col-md-4" id="ajaxCategory">
+
+         
+          
+                             <select class="form-control dropdownSearch " id="category" name="Category"><option value="">Select Category</option>
+<option value="1">Kerala</option>
+<option value="2">Indian</option>
+<option value="3">North Indian</option>
+<option value="4">Starters &amp; Salads	</option>
+<option value="5">Main Dishes</option>
+<option value="6">Combo Meals</option>
+<option value="7">Mandilicious Mini Meals</option>
+<option value="8">Mandilicious Mini Combo Meals</option>
+</select>
+
+                        
+                    </div>
+
+                </div>
+                </div>
+                
+                
+                
+                
+                
+                <div class="row">
+                    <div class="col-md-offset-3 col-md-3" style="padding-top:15px;" id="ajaxLocation">
+
+                        <select class="form-control dropdownSearch " id="location" name="Location"><option value="">Select Location</option>
+<option value="6">Dubai</option>
+<option value="7">Abu Dhabi</option>
+</select>
+
+
+                        
+                    </div>
+                    <div class="col-md-offset-0 col-md-offset-3 col-md-3" style="padding-top:15px;" id="ajaxArea">
+
+                        <select class="form-control dropdownSearch " id="area" name="Area"><option value="">Select Area</option>
+<option value="6">Abu Hail</option>
+<option value="7">Academic City</option>
+<option value="8">Al Awir</option>
+<option value="21">Al Aman</option>
+<option value="22">Al Bahia</option>
+<option value="23">Al Bandar</option>
+<option value="24">Al Dafrah</option>
+<option value="25">Al Falah City</option>
+<option value="26">Al Hosn</option>
+<option value="27">Al Ittihad</option>
+</select>
+
+
+                        
+                    </div>
+                </div>
+                <br />
+
+                <div class="row">
+                    <p style="text-align:center"><a href="#" class="btn btn-primary btn-lg" style="background: rgba(255, 255, 255, 0.1); border-color: #ffffff; z-index:999; position:relative; " id="btnSearch">Search</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+     <div style="z-index:999 ; margin-top:150px; position:relative;" class="container">
+        
+        <footer>
+            
+            <p class="copyright text-muted small" style="text-align:center; color:#FFF;">Copyright &copy; Eat Lyk Eagles 2016. All Rights Reserved</p>
+        </footer>
+    </div>
+    
+           
+                
+                
+                
+                
+
+    <!-- /.container -->
+
+
+
+</body>
+
+</html>
