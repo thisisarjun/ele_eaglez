@@ -64,6 +64,16 @@ module.exports.connections = {
   //   password: 'password', //optional
   //   database: 'your_mongo_db_name_here' //optional
   // },
+        mongodb: {
+       adapter: 'sails-mongo',
+       host: '172.31.16.18',
+       port: 8897,
+       user: '', //optional
+       password: '' //optional
+      // database: 'ele' //optional
+  // },
+
+    }
 
   /***************************************************************************
   *                                                                          *
