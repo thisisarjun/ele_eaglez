@@ -11,6 +11,7 @@
 
     <title>Eatlykeagles</title>
 
+    <!-- Bootstrap Core CSS -->
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -21,6 +22,8 @@
     <![endif]-->
     
     <style>
+
+	
 	
 	.navbar-inverse{ background-color:transparent;};
 	
@@ -30,15 +33,10 @@
 </head>
 
 <body>
-
-<ul class="cb-slideshow">
-            <li><span>Image 01</span><div></div></li>
-            <li><span>Image 02</span><div></div></li>
-            <li><span>Image 03</span><div></div></li>
-            <li><span>Image 04</span><div></div></li>
-            <li><span>Image 05</span><div></div></li>
-            <li><span>Image 06</span><div>></div></li>
-        </ul>
+<div class="video-overlay"></div>
+<video autoplay loop class="fillWidth fadeIn animated" poster="" id="video-background">
+    <source src="https://hungryhouse.co.uk/video/intro.webm" type="video/mp4">Your browser does not support the video tag. I suggest you upgrade your browser.
+</video>
 
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -53,48 +51,50 @@
     </div>
     <div class="navbar-collapse collapse" id="searchbar">
      
-       <ul class="nav navbar-nav navbar-right" style="margin-right:40px;">
-        <li><p  class="navbar-text">Already have an account?</p></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b style="color:#FFF; font-size:18px;">Login</b> <span class="caret"></span></a>
-			<ul id="login-dp" class="dropdown-menu">
-				<li>
-					 <div class="row">
-							<div class="col-md-12">
-								Login via
-								<div class="social-buttons">
-									<a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
-									<a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
-								</div>
-                                or
-								 <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
-										<div class="form-group">
-											 <label class="sr-only" for="exampleInputEmail2">Email address</label>
-											 <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
-										</div>
-										<div class="form-group">
-											 <label class="sr-only" for="exampleInputPassword2">Password</label>
-											 <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
-                                             <div class="help-block text-right"><a href="">Forget the password ?</a></div>
-										</div>
-										<div class="form-group">
-											 <button type="submit" class="btn btn-primary btn-block">Sign in</button>
-										</div>
-										<div class="checkbox">
-											 <label>
-											 <input type="checkbox"> keep me logged-in
-											 </label>
-										</div>
-								 </form>
-							</div>
-							<div class="bottom text-center">
-								New here ? <a href="signup.html"><b>Join Us</b></a>
-							</div>
-					 </div>
-				</li>
-			</ul>
-        </li>
-      </ul>
+       <ul id="signInDropdown" class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <button type="button" id="dropdownMenu1" data-toggle="dropdown" class="btn btn-info navbar-btn dropdown-toggle" style="background-color:#9F0011; border-color:transparent;"><i class="glyphicon glyphicon-user"></i> Login <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                          <li style="width: 250px;">
+                                <form class="navbar-form form" role="form">
+                                    <div class="form-group">
+                                      <div class="input-group">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
+                                            <!--EMAIL ADDRESS-->
+                                            <input id="emailInput" placeholder="email address" class="form-control" type="email" oninvalid="setCustomValidity('Please enter a valid email address!')" onchange="try{setCustomValidity('')}catch(e){}" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock color-blue"></i></span>
+                                            <!--PASSWORD-->
+                                            <input id="passwordInput" placeholder="password" class="form-control" type="password" oninvalid="setCustomValidity('Please enter a password!')" onchange="try{setCustomValidity('')}catch(e){}" required>
+                                        </div>
+                                    </div>
+                                    <!--  BASIC ERROR MESSAGE
+                                    <div class="form-group">
+                                    <label class="error-message color-red">*Email &amp; password don't match!</label>
+                                    </div>
+                                    -->
+                                    <div class="form-group">
+                                        <!--BUTTON-->
+                                        <button type="submit" class="btn btn-primary form-control">Login</button>
+                                    </div>
+                                    <div class="form-group">
+                                        <!--RESET PASSWORD LINK-->
+                                        <span class="pull-right"><a href="../user/create">Forgot Password?</a></span>
+                                        
+                                    </div>
+                                    <div class="form-group">
+                                        <!--RESET PASSWORD LINK-->
+                                        <span class="pull-right"><a href="signup.html">Join here</a></span>
+                                        
+                                    </div>
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
      
      
      
@@ -107,11 +107,15 @@
     </nav>
 
     <!-- Page Content -->
-    <form action="" enctype="" method="post"><input name="" type="hidden" value="" />    <div style="margin-top:90px;" class="intro-header">
+    
+    
+    
+    
+    <form action="../hotel/search"  method="post"><input name="" type="hidden" value="" />    <div style="margin-top:100px;" class="intro-header">
 
     <div class="container">
     <div class="intro-message" style="text-align: center; z-index:999; position:relative;">
-                <img class="img-responsive center-block" src="images/indexLogo.png" />
+                <img class="img-responsive center-block" src="../images/user/indexLogo.png" />
                 <hr class="intro-divider" style="width:380px;">
                 <div class="row">
 
@@ -119,15 +123,14 @@
 
          
           
-                             <select class="form-control dropdownSearch " id="category" name="Category"><option value="">Select Category</option>
-<option value="1">Kerala</option>
-<option value="2">Indian</option>
-<option value="3">North Indian</option>
-<option value="4">Starters &amp; Salads	</option>
-<option value="5">Main Dishes</option>
-<option value="6">Combo Meals</option>
-<option value="7">Mandilicious Mini Meals</option>
-<option value="8">Mandilicious Mini Combo Meals</option>
+                             <select class="form-control dropdownSearch " id="category" name="cuisine" >
+                               <option>Select Cuisine</option> 
+                            <% 
+                                var length = cuisine.length;
+                                for(var i =0;i<length;i++) {
+                            %>    
+                            <option value="<%= cuisine[i].name %>"><%= cuisine[i].name %></option>
+                            <% } %>
 </select>
 
                         
@@ -140,12 +143,13 @@
                 
                 
                 
-                <div class="row">
+                <div class="row" style="z-index:999; position:relative;">
                     <div class="col-md-offset-3 col-md-3" style="padding-top:15px;" id="ajaxLocation">
 
-                        <select class="form-control dropdownSearch " id="location" name="Location"><option value="">Select Location</option>
-<option value="6">Dubai</option>
-<option value="7">Abu Dhabi</option>
+                        <select class="form-control dropdownSearch " id="location" name="state">
+                            <option value="">Select State</option>
+<option value="Dubai">Dubai</option>
+<option value="Abu Dhabi">Abu Dhabi</option>
 </select>
 
 
@@ -153,17 +157,18 @@
                     </div>
                     <div class="col-md-offset-0 col-md-offset-3 col-md-3" style="padding-top:15px;" id="ajaxArea">
 
-                        <select class="form-control dropdownSearch " id="area" name="Area"><option value="">Select Area</option>
-<option value="6">Abu Hail</option>
-<option value="7">Academic City</option>
-<option value="8">Al Awir</option>
-<option value="21">Al Aman</option>
-<option value="22">Al Bahia</option>
-<option value="23">Al Bandar</option>
-<option value="24">Al Dafrah</option>
-<option value="25">Al Falah City</option>
-<option value="26">Al Hosn</option>
-<option value="27">Al Ittihad</option>
+                        <select class="form-control dropdownSearch " id="area" name="city">
+                            <option value="">Select City</option>
+<option value="Abu Hail">Abu Hail</option>
+<option value="Academic City">Academic City</option>
+<option value="Al Awir">Al Awir</option>
+<option value="Al Aman">Al Aman</option>
+<option value="Al Bahia">Al Bahia</option>
+<option value="Al Bandar">Al Bandar</option>
+<option value="Al Dafrah">Al Dafrah</option>
+<option value="Al Falah City">Al Falah City</option>
+<option value="Al Hosn">Al Hosn</option>
+<option value="Al Ittihad">Al Ittihad</option>
 </select>
 
 
@@ -173,28 +178,27 @@
                 <br />
 
                 <div class="row">
-                    <p style="text-align:center"><a href="#" class="btn btn-primary btn-lg" style="background: rgba(255, 255, 255, 0.1); border-color: #ffffff; z-index:999; position:relative; " id="btnSearch">Search</a></p>
+                    <p style="text-align:center"><input type="submit" value="Search" class="btn btn-primary btn-lg" style="background: rgba(255, 255, 255, 0.1); border-color: #ffffff; z-index:999; position:relative; width:100px; height:45px; background-color:#9F0011;     border-color: rgba(255, 255, 255, 0.21);" id="btnSearch"/></p>
                 </div>
             </div>
         </div>
     </div>
 </form>
 
-     <div style="z-index:999 ; margin-top:150px; position:relative;" class="container">
-        
-        <footer>
-            
-            <p class="copyright text-muted small" style="text-align:center; color:#FFF;">Copyright &copy; Eat Lyk Eagles 2016. All Rights Reserved</p>
-        </footer>
-    </div>
-    
-           
+     
+     
+     
                 
                 
                 
                 
 
     <!-- /.container -->
+
+
+
+</script>
+
 
 
 

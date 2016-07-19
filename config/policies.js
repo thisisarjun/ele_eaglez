@@ -25,8 +25,20 @@ module.exports.policies = {
   * access)                                                                  *
   *                                                                          *
   ***************************************************************************/
-
-  // '*': true,
+  SessionController : {
+   'new': ['flash','nosessionAuth']
+ },
+ UserController : {
+  '*':['flash'],  //sessionAuth
+  'index' : 'flash',
+  'new' : ['flash','nosessionAuth']
+ },
+ AdminController : {
+  '*' : ['flash','adminAuth']
+ },
+ MenuController : {
+  '*' : 'flash'
+ }
 
   /***************************************************************************
   *                                                                          *
