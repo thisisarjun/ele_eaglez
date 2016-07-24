@@ -13,12 +13,13 @@ module.exports = {
 				console.log('inside filefun upload');
 						
 				skipper_obj.upload({
-					maxBytes : 10000000,
+					dirname : process.cwd()+'/assets/images/uploads/',
+					maxBytes : 10000000				
 				}, function(err,uploadedFile){
 					//if no file uploaded.
 					console.log('upload done');
 					console.log(uploadedFile);
-					if(uploadedFile.size == 0) {
+					if(uploadedFile[0].size == 0) {
 						console.log('ok');
 						req.session.flash = {
 							'message' : 'no file was uploaded'
@@ -27,8 +28,10 @@ module.exports = {
 					}
 					//updating Hotel/User
 					console.log('here');
-					console.log(uploadedFile[0].fd);
-					model.update(id,{fd:uploadedFile[0].fd})
+					//console.log(uploadedFile[0].fd);
+					//designed for windows s/m if for linux, change accordingly
+					var fname = uploadedFile[0].fd.substring(uploadedFile[0].fd.lastIndexOf('\\') + 1);	
+					model.update(id,{fd:fname})
 					.exec(function(err){
 						if(err) {
 							req.session.flash = {

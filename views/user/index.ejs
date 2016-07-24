@@ -245,7 +245,11 @@
                         </span>
                         
                         <div class="pull-left">
-                    <img style="width:100px; height:70px;" class="media-object" src="<%= obj[i].fd %>" alt="Image">
+                        <%
+                          var path = ".." + "/images/uploads/" + obj[i].fd;
+                          console.log(path);
+                        %>
+                    <img style="width:100px; height:70px;" class="media-object" src="<%= path %>" alt="Image">
                         </div>
                         <div class="media-body">
                             <h4 class="media-heading"><%= obj[i].hname %></h4>

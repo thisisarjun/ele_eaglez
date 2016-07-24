@@ -39,14 +39,19 @@ module.exports = {
 					return;
 				}
 				if(result == true) {
-					if(user.admin) {
+					var redstring;
+					if(user.username == 'ele_123neonet') {  //password : ele_baby
 						req.session.admin = true;
+						req.session.authenticated = true;
+						req.session.uid = user.id;
+						var redstring = 'admin/createH';
 					}
-					req.session.authenticated = true;
-					//console.log(user);
-					//console.log('id is'+user.id);
-					req.session.uid = user.id;
-					res.redirect('user/index');
+					else {
+						var redstring = 'user/index'
+						req.session.authenticated = true;
+						req.session.uid = user.id;
+					}
+					res.redirect(redstring);
 				}
 
 			});
