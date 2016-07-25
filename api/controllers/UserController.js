@@ -50,12 +50,31 @@ module.exports = {
 			});
 		});
 	},
+
 	'edit' : function(req, res, next) {
-		res.view();
+
+		if(req.param('submit')) {
+			//comparing old password with the entered old password.
+			var enhashpass = 
+/*		User.update({name:req.param('name'),
+							})*/
+			User.findOne({id:req.session.uid},function(err, result){
+					res.view('user/edit',{userobj:result});				
+			});
+
+		}
+			
+		
 	},
 	'destroy' : function(req, res, next) {
 		req.session.destroy();
 		res.redirect('static/index');
+	},
+
+	//temporary
+	'test' : function(req, res, next) {
+		console.log(req.param('submit'));
+			res.view();
 	}
 };
 
