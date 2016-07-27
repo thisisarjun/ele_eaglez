@@ -52,17 +52,22 @@ module.exports = {
 	},
 
 	'edit' : function(req, res, next) {
+		//step 1 : if avatar is submitted execute below code.
+		//step 2: if details need to be updated, then the next one is submitted.
 
-		if(req.param('submit')) {
+
+
+/*		if(req.param('submit')) {
 			//comparing old password with the entered old password.
-			var enhashpass = 
-/*		User.update({name:req.param('name'),
-							})*/
+			var enhashprom = User.gethash(req.param('oldpassword'));
+			enhashprom.then(enhashpass) {
+
+			}*/
 			User.findOne({id:req.session.uid},function(err, result){
 					res.view('user/edit',{userobj:result});				
-			});
 
-		}
+
+		});
 			
 		
 	},

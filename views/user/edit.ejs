@@ -57,6 +57,7 @@
                         <span class="glyphicon glyphicon-chevron-down"></span>
                     </a>
                     <ul class="dropdown-menu">
+                      <% if(userobj.name) { console.log(userobj); %>
                         <li>
                             <div class="navbar-login">
                                 <div class="row">
@@ -67,22 +68,23 @@
                                     </div>
                                     <div class="col-lg-8">
                                      
-                                          <p class="text-left"><strong>Kannettan</strong></p>
-                                          <p class="text-left small">kannettan@email.com</p>
-                                          <p class="text-left">
-                                            <a href="edit_profile.html">Edit Profile</a>
+                                        <p class="text-left"><strong><%= userobj.name %></strong></p>
+                                        <p class="text-left small"><%= userobj.email %></p>
+                                        <p class="text-left">
+
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </li>
+                        <% } %>
                         <li class="divider"></li>
                         <li>
                             <div class="navbar-login navbar-login-session">
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <p>
-                                            <a href="#" class="btn btn-danger btn-block">Logout</a>
+                                            <a href="destroy" class="btn btn-danger btn-block">Logout</a>
                                         </p>
                                     </div>
                                 </div>
@@ -141,15 +143,36 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="col-md-3 control-label">Password:</label>
+            <label class="col-md-3 control-label">State:</label>
             <div class="col-md-8">
-              <input class="form-control" type="password" value="">
+              <input class="form-control" type="text" value="<%= userobj.state %>">
+            </div>
+          </div>          <div class="form-group">
+            <label class="col-md-3 control-label">Country:</label>
+            <div class="col-md-8">
+              <input class="form-control" type="text" value="<%= userobj.country %>">
+            </div>
+          </div>          <div class="form-group">
+            <label class="col-md-3 control-label">Pin:</label>
+            <div class="col-md-8">
+              <input class="form-control" type="text" value="<%= userobj.pin %>">
+            </div>
+          </div>          <div class="form-group">
+            <label class="col-md-3 control-label">Phone:</label>
+            <div class="col-md-8">
+              <input class="form-control" type="text" value="<%= userobj.phone %>">
             </div>
           </div>
           <div class="form-group">
-            <label class="col-md-3 control-label">Confirm password:</label>
+            <label class="col-md-3 control-label">Old Password:</label>
             <div class="col-md-8">
-              <input class="form-control" type="password" value="11111122333">
+              <input class="form-control" type="password" name="oldpassword" value="">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label">New password:</label>
+            <div class="col-md-8">
+              <input class="form-control" type="password" name="password" value="11111122333">
             </div>
           </div>
           <div class="form-group">
