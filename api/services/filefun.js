@@ -7,13 +7,14 @@ module.exports = {
 	/*
 	skipper_obj -> req.file('field')
 	id -> record id
-	model -> corresponding model	
+	model -> corresponding model
+	path -> path to save, know that you are starting from assets/images/	
 	*/
-	'upload' : function(skipper_obj, id, model) {
+	'upload' : function(skipper_obj, id, model,path) {
 				console.log('inside filefun upload');
-						
+				var path = '/assets/images/'+path;		
 				skipper_obj.upload({
-					dirname : process.cwd()+'/assets/images/uploads/',
+					dirname : process.cwd()+path,
 					maxBytes : 10000000				
 				}, function(err,uploadedFile){
 					//if no file uploaded.

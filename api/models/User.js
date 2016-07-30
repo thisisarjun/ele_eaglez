@@ -2,12 +2,12 @@
  * User.js
  *
  Columns : 
-name | username | email | encpass | address | state | country | pin | phone | status | admin
+name | username | email | encpass | address | state | country | pin | phone | status | admin | fd
 Function List : 
 
 
  */
- var promise = require('promise');
+ 
  var bcryptjs = require('bcryptjs');
 
 module.exports = {
@@ -58,11 +58,14 @@ module.exports = {
     admin : {
       type : 'boolean',
       defaultsTo : false
+    },
+    fd : {
+      type: 'string'
     }
 
   },
   //the following function gives the hashed value of the password.
-  gethash : function(password) {
+/*  gethash : function(password) {
   	return new promise(function(resolve,reject){
   		bcryptjs.genSalt(10, function(err,salt){
   			//hashe is the result, i.e hashed value.
@@ -71,6 +74,19 @@ module.exports = {
   			});
   		});
   	});
+  }*/
+
+  getHash : function(password,callback) {
+
+    bcryptjs.genSalt(10, function(err, salt){
+      bcryptjs.hash(password, salt, function(err, hashe){
+        if(err) {
+          return callback(err);
+        }
+        else
+          callback(null,hashe);
+      });
+    });
   }
 
   

@@ -27,16 +27,22 @@ module.exports = {
 	},
 
 	'create' : function(req,res,next) {
-		//console.log(req.params.all());
-		
+
 		var password = req.param('password');
-		var prom = User.gethash(password);
-		prom.then(function(encpass){
+		User.getHash(password, function(err,encpass){
+			if(err)
+				return console.log(err);
 			req.params.encpass = encpass;
 			//creating.
 			User.create(req.params.all(),function(err, user){
 				if(err) { console.log(err); }
-				else { res.redirect('session/new'); }
+				else { 
+					req.session.uid = user.id;
+					var skipobj = req.file('fileup');
+					var path = 'avatar/';
+					filefun.upload(skipobj, user.id, User, path );
+					res.redirect('session/new'); 
+				}
 
 			});
 		});
