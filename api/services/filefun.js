@@ -1,7 +1,7 @@
 /*
 	used to upload/download files.
 */
-var promise = require('promise');
+var fs = require('fs');
 module.exports = {
 	//basic upload using skipper, updloads and add the file descriptor to the record.
 	/*
@@ -12,7 +12,8 @@ module.exports = {
 	*/
 	'upload' : function(skipper_obj, id, model,path) {
 				console.log('inside filefun upload');
-				var path = '/assets/images/'+path;		
+				var path = '/assets/images/'+path;	
+				//console.log(process.cwd() + path);	
 				skipper_obj.upload({
 					dirname : process.cwd()+path,
 					maxBytes : 10000000				
@@ -27,10 +28,6 @@ module.exports = {
 						};
 						return;
 					}
-					//updating Hotel/User
-					console.log('here');
-					//console.log(uploadedFile[0].fd);
-					//designed for windows s/m if for linux, change accordingly
 					var fname = uploadedFile[0].fd.substring(uploadedFile[0].fd.lastIndexOf('\\') + 1);	
 					model.update(id,{fd:fname})
 					.exec(function(err){
@@ -45,6 +42,22 @@ module.exports = {
 				
 			});
 					
+	},
+
+	'delete' : function(model, uid, path,callback) {
+		var path = '/assets/images/'+path;
+		path = process.cwd() + path;
+		//console.log('the path is ' + path);
+		model.findOne({id : uid }, function(err, userobj){
+			path = path+userobj.fd;
+			try {
+				fs.unlinkSync(path);
+			}catch(e) {
+				return callback(e);
+			}
+			var result = true;
+			return callback(null);
+		});
 	}
 
 };

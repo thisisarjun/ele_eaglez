@@ -87,6 +87,23 @@ module.exports = {
           callback(null,hashe);
       });
     });
+  },
+
+//comares an attributes value with given value
+//att is attribute of the model to be compared with
+//val is the value you have entered to compare with
+  compareAtt : function(uid, att, val,callback) {
+    User.findOne({id:uid}, function(err, users){
+      if(err) {
+        return callback(err);
+      }
+      if(users.att == val) {
+        return callback(null, true);
+      }
+      else {
+        return callback(null, false);
+      }
+    });
   }
 
   

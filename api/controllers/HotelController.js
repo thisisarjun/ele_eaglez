@@ -8,9 +8,9 @@
 module.exports = {
 	
 	'create' : function(req, res, next) {
-		console.log(req.params.all());
+		//console.log(req.params.all());
 		Hotel.create(req.params.all(), function(err,user){
-			console.log(req.param('city'));
+			//console.log(req.param('city'));
 			if(err) { 
 				req.session.flash = {
 					'message' : 'an error occured while loading data'
