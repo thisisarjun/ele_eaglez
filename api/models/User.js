@@ -92,12 +92,15 @@ module.exports = {
 //comares an attributes value with given value
 //att is attribute of the model to be compared with
 //val is the value you have entered to compare with
+//note : following function cannot be used for encrypted password fields.
   compareAtt : function(uid, att, val,callback) {
     User.findOne({id:uid}, function(err, users){
+      //console.log(att);
+      //console.log(users[att]);
       if(err) {
         return callback(err);
       }
-      if(users.att == val) {
+      if(users[att] == val) {
         return callback(null, true);
       }
       else {

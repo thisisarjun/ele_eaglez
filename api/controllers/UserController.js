@@ -4,7 +4,7 @@
  * @description :: Server-side logic for managing users
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
-
+var bcryptjs = require('bcryptjs');
 module.exports = {
 	'index' : function(req, res, next) {
 		if(req.session.authenticated) {
@@ -65,13 +65,9 @@ module.exports = {
 			
 		
 	},
-
+	//update avatar
 	'updatea' : function(req, res, next) {
-		//step 1 : if avatar is submitted execute below code.
-		//step 2: if details need to be updated, then the next one is submitted.
-			/*
-				file upload and delete
-			*/
+
 			if(req.param('uploads') == 'uploads' && req.method.toLowerCase() == 'post' ) {
 				console.log('inside upfile');
 				var pat = 'avatar/';
@@ -87,35 +83,29 @@ module.exports = {
 				});
 				res.redirect('user/edit');
 			}
-			/*
-				update the details 
-			*/	
+
 	},
 
+	//update details
+
 	'updated' : function(req, res, next) {
-		User.getHash(req.param('oldpassword'), function(err, hashe){
+
+		User.findOne({id:req.session.uid}, function(err, user) {
 			if(err) {
 				req.session.flash = {
-					'message' : 'problem in hashing'
+					'message' : 'critical error please contact Administrator'
 				};
-				console.log('error in hashing');
 				return next();
-			} 
-			User.compareAtt(req.session.uid, 'encpass', hashe, function(err, result){
-				if(err) {
+			}
+			bcryptjs.compare(req.param('oldpassword'), user.encpass, function(err, result){
+				if(result == false) {
 					req.session.flash = {
-						'message' : 'problem in comparison method'
+						'message' : 'your password doesnt match your current password'
 					};
 					console.log('error in comparison');
 					return next();					
 				}
-				if(result == false) {
-					req.session.flash = {
-						'message' : 'your entered password doesnt match with current password'
-					};
-					console.log('false in comparison');
-					return next();					
-				}
+				
 				User.getHash(req.param('password'),function(err, hashe){
 					if(err) {
 						req.session.flash = {
@@ -129,7 +119,7 @@ module.exports = {
 						address : req.param('password'),
 						state : req.param('state'),
 						country : req.param('country'),
-						password : hashe
+						encpass : hashe
 					};
 					User.update({id:req.session.uid},upob, function(err, updated){
 						if(err) {
@@ -140,6 +130,7 @@ module.exports = {
 							return next();
 						}
 						console.log('successfully updated yo');
+						res.redirect('user/edit');
 					});					
 				});
 
