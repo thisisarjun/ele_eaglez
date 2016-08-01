@@ -10,21 +10,15 @@ module.exports = {
 	'create': function(req, res, next) {
 		//console.log(req.param('desc'));
 
-		var menuobj = {
-			'fname' : req.param('fname'),
-			'ftype' : req.param('ftype'),
-			'desc' : req.param('desc'),
-			'hid' : req.param('hid')
-		};
-		console.log(menuobj);
 
-		Menu.create(menuobj, function(err){
+		Menu.create(req.params.all(), function(err){
 					if(err) {
 								console.log(err);
 								req.session.flash = {
 									'message' : 'error in adding'
 								};
 							}
+					res.redirect('admin/createM')
 						
 		});
 	
