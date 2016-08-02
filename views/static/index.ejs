@@ -53,45 +53,9 @@
      
        <ul id="signInDropdown" class="nav navbar-nav navbar-right">
                     <li class="dropdown">
-                        <button type="button" id="dropdownMenu1" data-toggle="dropdown" class="btn btn-info navbar-btn dropdown-toggle" style="background-color:#9F0011; border-color:transparent;"><i class="glyphicon glyphicon-user"></i> Login <span class="caret"></span></button>
+                        <button type="button" id="dropdownMenu1" data-toggle="dropdown" class="btn btn-info navbar-btn dropdown-toggle" style="background-color:#9F0011; border-color:transparent;"><i class="glyphicon glyphicon-user"></i> My Account <span class="caret"></span></button>
                         <ul class="dropdown-menu">
-                          <li style="width: 250px;">
-                                <form action="../session/create" class="navbar-form form" role="form">
-                                    <div class="form-group">
-                                      <div class="input-group">
-                                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
-                                            <!--EMAIL ADDRESS-->
-                                            <input id="emailInput" placeholder="email address" class="form-control" type="text" name="username" oninvalid="setCustomValidity('Please enter a valid email address!')" onchange="try{setCustomValidity('')}catch(e){}" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock color-blue"></i></span>
-                                            <!--PASSWORD-->
-                                            <input id="passwordInput" placeholder="password" class="form-control" type="password" name="password" oninvalid="setCustomValidity('Please enter a password!')" onchange="try{setCustomValidity('')}catch(e){}" required>
-                                        </div>
-                                    </div>
-                                    <!--  BASIC ERROR MESSAGE
-                                    <div class="form-group">
-                                    <label class="error-message color-red">*Email &amp; password don't match!</label>
-                                    </div>
-                                    -->
-                                    <div class="form-group">
-                                        <!--BUTTON-->
-                                        <input type="submit" class="btn btn-primary form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <!--RESET PASSWORD LINK-->
-                                        <span class="pull-right"><a href="#">Forgot Password?</a></span>
-                                        
-                                    </div>
-                                    <div class="form-group">
-                                        <!--RESET PASSWORD LINK-->
-                                        <span class="pull-right"><a href="../user/new">Join here</a></span>
-                                        
-                                    </div>
-                                </form>
-                            </li>
+                        <%- partial('../partials/index_log_top') %>
                         </ul>
                     </li>
                 </ul>
@@ -125,12 +89,6 @@
           
                              <select class="form-control dropdownSearch " id="category" name="cuisine" >
                                <option>Select Cuisine</option> 
-<!--                             <% 
-                                var length = cuisine.length;
-                                for(var i =0;i<length;i++) {
-                            %>    
-                            <option value="<%= cuisine[i].name %>"><%= cuisine[i].name %></option>
-                            <% } %> -->
                             <option value="Chinese">Chinese</option> 
 </select>
 

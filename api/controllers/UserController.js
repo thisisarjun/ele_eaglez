@@ -8,8 +8,7 @@ var bcryptjs = require('bcryptjs');
 module.exports = {
 	'index' : function(req, res, next) {
 		if(req.session.authenticated) {
-			console.log(req.session.uid);
-			//console.log('here in index'+req.session.id);
+			console.log('session is authenticated');
 			User.findOne({id:req.session.uid},function(err, result){
 				//console.log('here in model method'+result);
 				res.view('user/index',{obj:req.session.search,
@@ -18,7 +17,7 @@ module.exports = {
 		}
 		else {
 			res.view('user/index',{obj:req.session.search,
-									userobj:{}});
+									userobj:null});
 		}
 	},
 
