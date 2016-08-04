@@ -24,6 +24,7 @@ module.exports = {
 				req.session.flash = {
 					'message' : "the given username doesn't exist"
 				};
+				req.session.flash.color = 0;
 				res.redirect('session/new');
 				return;
 			}
@@ -35,6 +36,7 @@ module.exports = {
 					req.session.flash = {
 						'message' : "username or password is incorrect"
 					};
+					req.session.flash.color = 0;
 					res.redirect('session/new');
 					return;
 				}

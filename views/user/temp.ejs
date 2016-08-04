@@ -1,7 +1,29 @@
-<form method="post" action="temp" enctype = "multipart/form-data" >
-	<input type="text" name="text" />
-	<input type="hidden" name="johhny sir" value="heeeere's johnnyyy" />
-	<input type="file" name="fileup" />
+
+<!-- enctype = "multipart/form-data" -->
+<style>
+.formco {
+	border : 1px solid #72c02c
+}
+</style>
+<form method="post" name="formed" action="" >
+	<input type="text" name="text" class="formco" /> </br>
+	<input type="text" name="username" class="formco" /></br>
+	<!-- <input type="file" name="fileup" /> -->
 	<input type="submit" name="submit" value="chumma" />
 	 <input type="hidden" name="_csrf" value="<%= _csrf %>" /> 	
 </form>
+<script>
+	document.forms['formed'].addEventListener("submit",function(event){
+		var formobj = document.forms['formed'];
+		var formele = formobj.elements;
+		for(var i =0; i<formele.length;i++) {
+			if(formele[i].value=="") {
+				formele[i].style.border= '1px solid red';
+				event.preventDefault();
+			}
+			else {
+				formele[i].style.border = '1px solid #72c02c'
+			}
+		}
+	});
+</script>

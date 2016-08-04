@@ -54,47 +54,17 @@
     
 
      
-       <ul id="signInDropdown" class="nav navbar-nav navbar-right">
+       <ul  class="nav navbar-nav navbar-right">
                     <li class="dropdown">
-                        <button type="button" id="dropdownMenu1" data-toggle="dropdown" class="btn btn-info navbar-btn dropdown-toggle" style="background-color:transparent; border-color:transparent;"><i class="glyphicon glyphicon-user"></i> Login <span class="caret"></span></button>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="glyphicon glyphicon-user"></span> 
+                        <strong>My Account</strong>
+                        <span class="glyphicon glyphicon-chevron-down"></span>
+                    </a>
                         <ul class="dropdown-menu">
-                          <li style="width: 250px;">
-                                <form class="navbar-form form" role="form">
-                                    <div class="form-group">
-                                      <div class="input-group">
-                                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
-                                            <!--EMAIL ADDRESS-->
-                                            <input id="emailInput" placeholder="email address" class="form-control" type="email" oninvalid="setCustomValidity('Please enter a valid email address!')" onchange="try{setCustomValidity('')}catch(e){}" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock color-blue"></i></span>
-                                            <!--PASSWORD-->
-                                            <input id="passwordInput" placeholder="password" class="form-control" type="password" oninvalid="setCustomValidity('Please enter a password!')" onchange="try{setCustomValidity('')}catch(e){}" required>
-                                        </div>
-                                    </div>
-                                    <!--  BASIC ERROR MESSAGE
-                                    <div class="form-group">
-                                    <label class="error-message color-red">*Email &amp; password don't match!</label>
-                                    </div>
-                                    -->
-                                    <div class="form-group">
-                                        <!--BUTTON-->
-                                        <button type="submit" class="btn btn-primary form-control">Login</button>
-                                    </div>
-                                    <div class="form-group">
-                                        <!--RESET PASSWORD LINK-->
-                                        <span class="pull-right"><a href="signup.html">Forgot Password?</a></span>
-                                        
-                                    </div>
-                                    <div class="form-group">
-                                        <!--RESET PASSWORD LINK-->
-                                        <span class="pull-right"><a href="signup.html">Join here</a></span>
-                                        
-                                    </div>
-                                </form>
-                            </li>
+                        <!-- partial should come here -->
+                        <%- partial('../partials/log_only.ejs') %>
+                          <!-- partial end -->
                         </ul>
                     </li>
                 </ul>
@@ -127,11 +97,12 @@
       
       
              <h4 style="color: #7EB59E; margin: initial; margin-bottom: 10px;">Sign Up Now</h4><hr>
+             <%- partial('../partials/error_display.ejs') %>
              <form action="create" method="post" enctype="multipart/form-data">
              
             <div class="input-group margin-bottom-20">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-user mycolor"></i></span>
-                <input size="60" maxlength="255" class="form-control" placeholder="Name" name="name" id="UserRegistration_username" type="text"> 
+                <input size="60" maxlength="255" class="form-control" placeholder="Name" name="name" id="UserRegistration_username" type="text" required> 
                 
                  </div>
                  
@@ -139,7 +110,7 @@
                  
                  <div class="input-group margin-bottom-20">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-user mycolor"></i></span>
-                <input size="60" maxlength="255" class="form-control" placeholder="User Name" name="username" id="UserRegistration_username" type="text"> 
+                <input size="60" maxlength="255" class="form-control" placeholder="User Name" name="username" id="UserRegistration_username" type="text" required> 
                 
                  </div>
                  
@@ -156,7 +127,7 @@
                                                                       
             <div class="input-group margin-bottom-20">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock mycolor"></i></span>
-                <input size="60" maxlength="255" class="form-control" placeholder="Password" name="password" id="UserRegistration_password" type="password">                                    </div>
+                <input size="60" maxlength="255" class="form-control" placeholder="Password" name="password" id="UserRegistration_password" type="password" required>                                    </div>
                 
                 
                 
@@ -166,7 +137,7 @@
                 
             <div class="input-group margin-bottom-20">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-user mycolor"></i></span>
-                <input size="60" maxlength="255" class="form-control" placeholder="Address" name="address" id="UserRegistration_lname" type="text">                                    </div>
+                <input size="60" maxlength="255" class="form-control" placeholder="Address" name="address" id="UserRegistration_lname" type="text" required>                                    </div>
                 
                 
                 
@@ -174,7 +145,7 @@
                 
             <div class="input-group margin-bottom-20">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope mycolor"></i></span>
-                <input size="60" maxlength="255" class="form-control" placeholder="Phone" name="phone" id="UserRegistration_address" type="text">                                    </div>
+                <input size="60" maxlength="255" class="form-control" placeholder="Phone" name="phone" id="UserRegistration_address" type="text" required>                                    </div>
                 
                 
                 
@@ -183,7 +154,7 @@
                 
             <div class="input-group margin-bottom-20">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-phone mycolor"></i></span>
-                <input size="60" maxlength="255" class="form-control" placeholder="Country" name="country]" id="UserRegistration_contactnumber" type="text">                                    </div>
+                <input size="60" maxlength="255" class="form-control" placeholder="Country" name="country]" id="UserRegistration_contactnumber" type="text" required>                                    </div>
                 
                 
                 
@@ -191,7 +162,7 @@
                 
                     <div class="input-group margin-bottom-20">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-phone mycolor"></i></span>
-                <input size="60" maxlength="255" class="form-control" placeholder="State" name="state" id="UserRegistration_contactnumber" type="text">                                    </div>
+                <input size="60" maxlength="255" class="form-control" placeholder="State" name="state" id="UserRegistration_contactnumber" type="text" required>                                    </div>
                 
                 
                 
@@ -199,11 +170,8 @@
                 
                 <div class="input-group margin-bottom-20">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-phone mycolor"></i></span>
-                <input size="60" maxlength="255" class="form-control" placeholder="Pin" name="pin" id="UserRegistration_contactnumber" type="text">                                    </div>
+                <input size="60" maxlength="255" class="form-control" placeholder="Pin" name="pin" id="UserRegistration_contactnumber" type="text" required>                                    </div>
                 
-                <div class="input-group margin-bottom-20">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-phone mycolor"></i></span>
-                <input size="60" maxlength="255" class="form-control"  name="fileup" id="UserRegistration_contactnumber" type="file">                                    </div>
                 
                 
                 
@@ -378,5 +346,6 @@
    
 
 </body>
+<script src = "../js/form_val/form_val_reg.js"></script>
 
 </html>

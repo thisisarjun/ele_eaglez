@@ -27,23 +27,54 @@ module.exports = {
 
 	'create' : function(req,res,next) {
 
-		var password = req.param('password');
-		User.getHash(password, function(err,encpass){
-			if(err)
-				return console.log(err);
-			req.params.encpass = encpass;
-			//creating.
-			User.create(req.params.all(),function(err, user){
-				if(err) { console.log(err); }
-				else { 
-					req.session.uid = user.id;
-					var skipobj = req.file('fileup');
-					var path = 'avatar/';
-					filefun.upload(skipobj, user.id, User, path );
-					res.redirect('session/new'); 
-				}
-			});
+	
+		User.findOne({username:req.param('username')}, function(err, result){
+			var redstring;
+			console.log(result);
+			if(result) {
+				try {
+					throw new Error('error');
+				}catch(e) { res.end(); 
+				} 
+				console.log('here in first if');
+				req.session.flash = {
+					'message' : 'please try a different username, this one seems to be taken.'
+				};
+				req.session.flash.color = 0;
+				redstring = 'user/new';	
+				
+			}
+			else {
+				console.log('here in else')	;
+				var password = req.param('password');
+				redstring = 'session/new';
+				User.getHash(password, function(err,encpass){
+					if(err)
+						return console.log(err);
+					req.params.encpass = encpass;
+					console.log(encpass);
+						//creating.
+						User.create(req.params.all(),function(err, user){
+							if(err) { //not gonna happen as there is front side validation
+								console.log(JSON.stringify(err,null,2)); }
+							else { 
+								console.log(user.id);
+								req.session.uid = user.id;
+								var skipobj = req.file('fileup');
+								var path = 'avatar/';
+								filefun.upload(skipobj, user.id, User, path );
+								req.session.flash = {
+									'message' : 'successfully registered. please login to continue'
+								};
+								req.session.flash.color = 1;
+							}
+						});
+				 });
+			}
+			res.redirect(redstring);		
 		});
+
+
 	
 
 	},
@@ -145,7 +176,7 @@ module.exports = {
 	},
 
 	'temp' : function(req, res, next) {
-		console.log(req.params.all());
+		// console.log(req.params.all());
 /*		req.file('fileup').upload({ maxBytes : 100000},
 			function(err, uploadedFiles){
 				console.log(uploadedFiles[0]);
