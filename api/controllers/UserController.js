@@ -102,15 +102,13 @@ module.exports = {
 				console.log('inside upfile');
 				var pat = 'avatar/';
 				var skipobj = req.file('fileup');
-				filefun.delete(User,req.session.uid,pat,function(err){
-					if(err) {
-						req.session.flash = {
-							'message' : 'there seem to be a problem in uploading the file. please try again'
-						};
-						return;
-					}
-				filefun.upload(skipobj, req.session.uid, User, pat);
+				User.findOne({id:req.session.uid}, function(err, user){
+					console.log(oldfd);
+					var oldfd = user.fd;
+					filefun.upload(skipobj, user.id, User, pat);
+					filefun.delete(oldfd,pat);
 				});
+
 				res.redirect('user/edit');
 			}
 

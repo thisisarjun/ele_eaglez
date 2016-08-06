@@ -11,7 +11,7 @@ module.exports = {
 	path -> path to save, know that you are starting from assets/images/	
 	*/
 	'upload' : function(skipper_obj, id, model,path) {
-				console.log('inside filefun upload');
+				console.log('inside filefunction upload');
 				var path = '/assets/images/'+path;	
 				//console.log(process.cwd() + path);	
 				skipper_obj.upload({
@@ -19,6 +19,7 @@ module.exports = {
 					maxBytes : 10000000				
 				}, function(err,uploadedFile){
 					//if no file uploaded.
+					console.log('3');
 					console.log('upload done');
 					console.log(uploadedFile);
 					if(uploadedFile[0].size == 0) {
@@ -35,6 +36,7 @@ module.exports = {
 							req.session.flash = {
 							'message':'problem with updation of database'
 							};
+
 							return;
 						}
 					});
@@ -44,20 +46,17 @@ module.exports = {
 					
 	},
 
-	'delete' : function(model, uid, path,callback) {
+	'delete' : function( oldfd, path) {
 		var path = '/assets/images/'+path;
 		path = process.cwd() + path;
 		//console.log('the path is ' + path);
-		model.findOne({id : uid }, function(err, userobj){
-			path = path+userobj.fd;
-			try {
-				fs.unlinkSync(path);
-			}catch(e) {
-				return callback(e);
-			}
-			var result = true;
-			return callback(null);
-		});
+		path = path+oldfd;
+		try {
+			fs.unlinkSync(path);
+		}catch(e) {
+			console.log(e);
+		}
+
 	}
 
 };
