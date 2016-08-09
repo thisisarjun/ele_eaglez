@@ -27,5 +27,6 @@ module.exports = {
 	'random' : function(req, res, next) {
 		res.view();
 	}
+
 };
 

@@ -9,11 +9,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Eatlykeagles</title>
+    <title>EatlykEagles</title>
 
-    <!-- Bootstrap Core CSS -->
-    
-    
+  
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -23,211 +21,134 @@
     <![endif]-->
     
     <style>
+    .navbar-default {
+    background-color:#9F0011;
+    border-color:transparent;
+    }
 
-    
-    
-    .navbar-inverse{ background-color:#9F0011;};
-    
+   .btn-danger {
+    color: #fff;
+    background-color: #9F0011;
+    border-color:transparent;
+    }
+   .modal-backdrop  {
+      display : none;
+    }
     </style>
- <link href="../styles/style2.css" rel="stylesheet"></link>   
-
+    
+  
+  
+  
+    
+  
 </head>
-
-<body>
-
-<div class="wraper" style="height:100%;">
- <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
+<body style="background-color:#fff;">
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+<div class="container"> 
     
-    <a class="navbar-brand" href="/Home"><img src="../images/logo2.png" alt="Eat Lyk Eagles"></a>
-
-    </div>
-    <div class="navbar-collapse collapse" id="searchbar">
-    
-    
-
-     
-       <ul  class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <span class="glyphicon glyphicon-user"></span> 
-                        <strong>My Account</strong>
-                        <span class="glyphicon glyphicon-chevron-down"></span>
-                    </a>
-                        <ul class="dropdown-menu">
-                        <!-- partial should come here -->
-                        <%- partial('../partials/log_only.ejs') %>
-                          <!-- partial end -->
-                        </ul>
-                    </li>
-                </ul>
-     
-     
-     
-     
-
-    </div><!--/.nav-collapse -->
-  </div>
-  
-  </nav>
-  
-</div>
-
-        <!-- /.container -->
-    
-
-
-<div class="container-fluid" style="background:url(../images/user/food-styling-photography_blur.jpg) no-repeat center; background-size:cover; margin-top:-70px; height:700px;">
-
-<div class="container">
-
-<div class="row">
-
-<div class="col-md-6 col-md-offset-3">
-
-<div class="card" style="background-color: rgba(2555,255,255,.3); margin-top:50px;" >
-      
-      
-      
-             <h4 style="color: #7EB59E; margin: initial; margin-bottom: 10px;">Sign Up Now</h4><hr>
-             <%- partial('../partials/error_display.ejs') %>
-             <form action="create" method="post" enctype="multipart/form-data">
-             
-            <div class="input-group margin-bottom-20">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-user mycolor"></i></span>
-                <input size="60" maxlength="255" class="form-control" placeholder="Name" name="name" id="UserRegistration_username" type="text" required> 
-                
-                 </div>
-                 
-                 
-                 
-                 <div class="input-group margin-bottom-20">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-user mycolor"></i></span>
-                <input size="60" maxlength="255" class="form-control" placeholder="User Name" name="username" id="UserRegistration_username" type="text" required> 
-                
-                 </div>
-                 
-                 
-                 
-                 
-                 <div class="input-group margin-bottom-20">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-user mycolor"></i></span>
-                <input size="60" maxlength="255" class="form-control" placeholder="Email" name="email" id="UserRegistration_fname" type="text">                                    </div>
-                 
-                 
-                
-                
-                                                                      
-            <div class="input-group margin-bottom-20">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-lock mycolor"></i></span>
-                <input size="60" maxlength="255" class="form-control" placeholder="Password" name="password" id="UserRegistration_password" type="password" required>                                    </div>
-                
-                
-                
-            
-                
-                
-                
-            <div class="input-group margin-bottom-20">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-user mycolor"></i></span>
-                <input size="60" maxlength="255" class="form-control" placeholder="Address" name="address" id="UserRegistration_lname" type="text" required>                                    </div>
-                
-                
-                
-                
-                
-            <div class="input-group margin-bottom-20">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope mycolor"></i></span>
-                <input size="60" maxlength="255" class="form-control" placeholder="Phone" name="phone" id="UserRegistration_address" type="text" required>                                    </div>
-                
-                
-                
-                
-                
-                
-            <div class="input-group margin-bottom-20">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-phone mycolor"></i></span>
-                <input size="60" maxlength="255" class="form-control" placeholder="Country" name="country]" id="UserRegistration_contactnumber" type="text" required>                                    </div>
-                
-                
-                
-                
-                
-                    <div class="input-group margin-bottom-20">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-phone mycolor"></i></span>
-                <input size="60" maxlength="255" class="form-control" placeholder="State" name="state" id="UserRegistration_contactnumber" type="text" required>                                    </div>
-                
-                
-                
-                
-                
-                <div class="input-group margin-bottom-20">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-phone mycolor"></i></span>
-                <input size="60" maxlength="255" class="form-control" placeholder="Pin" name="pin" id="UserRegistration_contactnumber" type="text" required>                                    </div>
-                
-                
-                
-                
-                
-                
-            <div class="row">
-            
-                <div class="col-md-12">
-                    <input type="submit" class="btn-u pull-left" value="submit"/>
-                </div>
-            </div>
-      </form>
-      
-      
-
-</div> 
-
-</div>
-
-</div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div><!--container-->
-
-</div><!--wraper-->
-
-
-
-
-
-
-
-
-
-<%- partial('../partials/footer') %> 
-        
-
-
-
-
-
+    <!--logo-->
+   <a style="margin-top:-10px;" class="navbar-brand" href="index.html"><img  class="img-responsive" src="../images/user/logo2.png" alt="Eat Lyk Eagles"></a>
    
+   
+   
+      <!-- Single button -->
+   <div class="btn-group" style="float:right; padding-top:15px; margin-right:10px;">
+<%- partial('../partials/user_login_signup') %>
+  
+  
+</div>
+</div>  
+</div>
+
+
+
+
+            <!--background img-->
+            
+    <div class="container-fluid" style="background:url(../images/user/bg1.JPG) no-repeat center ;      background-size:cover; width:100%; height:auto;px;">
+          
+              <div class="container">
+        <div class="row centered-form">
+        <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title" style="text-align:center;">Sign up</h3>
+            </div>
+            <div class="panel-body">
+
+              <%- partial('../partials/error_display.ejs') %>
+             
+              <form role="form" action="create" method="post">
+                
+
+
+                <div class="form-group">
+                  <input type="text" name="name" id="email" class="form-control input-sm" placeholder="Name" required>
+                </div>
+
+
+                  <div class="form-group">
+                  <input type="text" name="username" id="password" class="form-control input-sm" placeholder="UserName" required>
+                  </div>          
+                                  
+                <div class="form-group">
+                  <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address" required>
+                </div>
+
+
+                <div class="form-group">
+                  <input type="password" name="password" id="email" class="form-control input-sm" placeholder="password" required>
+                </div>
+               
+               <div class="form-group">
+                  <input type="text" name="address" id="email" class="form-control input-sm" placeholder=" Address" required>
+                </div>
+
+
+
+                <div class="form-group">
+                  <input type="text" name="phone" id="email" class="form-control input-sm" placeholder="Phone" required>
+                </div>
+
+
+
+
+               <div class="row">
+                  <div class="col-xs-6 col-sm-6 col-md-6">
+                    <div class="form-group">
+                      <input type="text" name="state" id="first_name" class="form-control input-sm floatlabel" placeholder="State" required>
+                    </div>
+                  </div>
+
+
+                  <div class="col-xs-6 col-sm-6 col-md-6">
+                    <div class="form-group">
+                      <input type="text" name="country" id="last_name" class="form-control input-sm" placeholder="Country" required>
+                    </div>
+                  </div>
+                </div>
+
+            
+
+                <div class="form-group">
+                  <input type="text" name="pin" id="email" class="form-control input-sm" placeholder="Pin" required>
+                </div>
+                
+
+                <input type="submit" value="submit" class="btn btn-danger btn-block">
+              
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   </div> <!--/background img-->
+
+
+         
+<%- partial('../partials/footer') %>
+                                
 
 </body>
-<script src = "../js/form_val/form_val_reg.js"></script>
-
 </html>

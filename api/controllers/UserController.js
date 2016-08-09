@@ -32,10 +32,6 @@ module.exports = {
 			var redstring;
 			console.log(result);
 			if(result) {
-				try {
-					throw new Error('error');
-				}catch(e) { res.end(); 
-				} 
 				console.log('here in first if');
 				req.session.flash = {
 					'message' : 'please try a different username, this one seems to be taken.'
@@ -60,9 +56,6 @@ module.exports = {
 							else { 
 								console.log(user.id);
 								req.session.uid = user.id;
-								var skipobj = req.file('fileup');
-								var path = 'avatar/';
-								filefun.upload(skipobj, user.id, User, path );
 								req.session.flash = {
 									'message' : 'successfully registered. please login to continue'
 								};
@@ -95,35 +88,18 @@ module.exports = {
 			
 		
 	},
-	//update avatar
-	'updatea' : function(req, res, next) {
 
-			if(req.param('uploads') == 'uploads' && req.method.toLowerCase() == 'post' ) {
-				console.log('inside upfile');
-				var pat = 'avatar/';
-				var skipobj = req.file('fileup');
-				User.findOne({id:req.session.uid}, function(err, user){
-					console.log(oldfd);
-					var oldfd = user.fd;
-					filefun.upload(skipobj, user.id, User, pat);
-					filefun.delete(oldfd,pat);
-				});
-
-				res.redirect('user/edit');
-			}
-
-	},
 
 	//update details
 
 	'updated' : function(req, res, next) {
-
+		var redstring;
 		User.findOne({id:req.session.uid}, function(err, user) {
 			if(err) {
 				req.session.flash = {
 					'message' : 'critical error please contact Administrator'
 				};
-				return next();
+				 redstring = '../user/edit';
 			}
 			bcryptjs.compare(req.param('oldpassword'), user.encpass, function(err, result){
 				if(result == false) {
@@ -131,7 +107,7 @@ module.exports = {
 						'message' : 'your password doesnt match your current password'
 					};
 					console.log('error in comparison');
-					return next();					
+					 redstring = '../user/edit';				
 				}
 				
 				User.getHash(req.param('password'),function(err, hashe){
@@ -140,7 +116,7 @@ module.exports = {
 							'message' : 'problem in hashing'
 						};
 						console.log('error in hashing');
-						return next();						
+						 redstring = '../user/edit';						
 					}
 					var upob = {
 						name : req.param('name'),
@@ -155,10 +131,10 @@ module.exports = {
 								'message' : 'problem in updation'
 							};
 							console.log(err);
-							return next();
+							 redstring = '../user/edit';s
 						}
 						console.log('successfully updated yo');
-						res.redirect('user/edit');
+						res.redirect(redstring);
 					});					
 				});
 
@@ -172,14 +148,16 @@ module.exports = {
 		req.session.destroy();
 		res.redirect('static/index');
 	},
-
-	'temp' : function(req, res, next) {
-		// console.log(req.params.all());
-/*		req.file('fileup').upload({ maxBytes : 100000},
-			function(err, uploadedFiles){
-				console.log(uploadedFiles[0]);
-			});*/
-		res.view();
+	'menuv' : function(req, res, next) {
+		Menu.find({hid:req.param('id')}, function(err, result){
+			if(err) {
+				console.log('query error:'+ err);
+			}
+			res.view({menuobj:result});
+		});
+		
 	}
+
+
 };
 

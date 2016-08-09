@@ -23,7 +23,7 @@ module.exports = {
 			//console.log(req.session.hid);
 			var field = req.file('fileup');
 			//returns the promise object(value fd) from upload
-			var path = 'uploads/';
+			var path = 'Hotel/';
 			filefun.upload(field, user.id,Hotel,path);
 			res.redirect('admin/createH');
 
