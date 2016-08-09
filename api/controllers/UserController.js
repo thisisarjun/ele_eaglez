@@ -9,7 +9,7 @@ module.exports = {
 	'index' : function(req, res, next) {
 		if(req.session.authenticated) {
 			console.log('session is authenticated');
-			User.findOne({id:req.session.uid},function(err, result){
+		User.findOne({id:req.session.uid},function(err, result){
 				//console.log('here in model method'+result);
 				res.view('user/index',{obj:req.session.search,
 										userobj:result});				
@@ -97,26 +97,33 @@ module.exports = {
 		User.findOne({id:req.session.uid}, function(err, user) {
 			if(err) {
 				req.session.flash = {
-					'message' : 'critical error please contact Administrator'
+					'message' : 'critical error please contact Administrator',
+					'color' : 0
 				};
-				 redstring = '../user/edit';
+				 redstring = '../edit';
 			}
 			bcryptjs.compare(req.param('oldpassword'), user.encpass, function(err, result){
 				if(result == false) {
 					req.session.flash = {
-						'message' : 'your password doesnt match your current password'
+						'message' : 'your password doesnt match your current password',
+						'color' : 0
 					};
 					console.log('error in comparison');
-					 redstring = '../user/edit';				
+					 redstring = '../edit';
+					 res.redirect(redstring);
+					 return;				
 				}
 				
 				User.getHash(req.param('password'),function(err, hashe){
 					if(err) {
 						req.session.flash = {
-							'message' : 'problem in hashing'
+							'message' : 'problem in hashing',
+							'color' : 0
 						};
 						console.log('error in hashing');
-						 redstring = '../user/edit';						
+						 redstring = '../edit';	
+						 res.redirect(redstring);
+						 return;						 					
 					}
 					var upob = {
 						name : req.param('name'),
@@ -128,13 +135,20 @@ module.exports = {
 					User.update({id:req.session.uid},upob, function(err, updated){
 						if(err) {
 							req.session.flash = {
-								'message' : 'problem in updation'
+								'message' : 'problem in updation',
+								'color' : 0
 							};
 							console.log(err);
-							 redstring = '../user/edit';s
+							 redstring = '../edit';
+							 res.redirect(redstring);
+							 return;							
 						}
 						console.log('successfully updated yo');
-						res.redirect(redstring);
+						req.session.flash = {
+							'message' : 'successfully updated',
+							'color' : 1
+						};
+						res.redirect('../edit');
 					});					
 				});
 
@@ -148,6 +162,7 @@ module.exports = {
 		req.session.destroy();
 		res.redirect('static/index');
 	},
+
 	'menuv' : function(req, res, next) {
 		Menu.find({hid:req.param('id')}, function(err, result){
 			console.log(result);
