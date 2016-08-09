@@ -355,30 +355,34 @@
                    <h3 style="padding-bottom:12px;">WHAT'S HOT ?</h3>
   <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#home">Menu</a></li>
-    <% console.log(menuobj); %>
+
     
   </ul>
 
 <div class="tab-content">
     <div id="home" class="tab-pane fade in active">
       <h4 style="padding-top:12px;">Starters</h4>
+  <!-- for loop start  -->  
+<% for(var i = 0; i<sc;i++) { %>
      <div class="list-group">
                 <a href="#" class="list-group-item">
                 
                                     <div class="media">
-                                        <span style="float:right; margin-top:12px;">
-                                      
-                       <button type="button" class="btn btn-danger btn-sm">View Menu</button></span>                                     
+                                                    <span style="float:right; margin-top:12px;">
+                                                  
+                                   <p><%= menuobj[sarr[i]].price %></p></span>                                       
                                                              
                          
                                         
                                         <div class="media-body">
-                                            <h4 class="media-heading">Pizza Hunt</h4>
-                                            <p>Online delivery</p>
+                                            <h4 class="media-heading"><%= menuobj[sarr[i]].fname %></h4>
+                                            <p><%= menuobj[sarr[i]].desc %></p>
                                         </div>
                                         </div></a>  
                                           </div>
+                    <% } %>
 
+        <!-- for loop end -->
                                          </div>
     
                                         </div>
@@ -388,23 +392,26 @@
                 <div class="tab-content">
                 <div id="home" class="tab-pane fade in active">
                   <h4 style="padding-top:12px;">Main Course</h4>
+<!-- for loop start -->
+    <% for(var i = 0; i<mc;i++) { %>    
                  <div class="list-group">
                             <a href="#" class="list-group-item">
                             
                                                 <div class="media">
-                                                    <span style="float:right; margin-top:12px;">
+                                                     <span style="float:right; margin-top:12px;">
                                                   
-                                   <button type="button" class="btn btn-danger btn-sm">View Menu</button></span>                                     
+                                   <p><%= menuobj[sarr[i]].price %></p></span>                                       
                                                                          
                                      
                                                     
                                                     <div class="media-body">
-                                                        <h4 class="media-heading">Pizza Hunt</h4>
-                                                        <p>Online delivery</p>
+                                                        <h4 class="media-heading"><%= menuobj[marr[i]].fname %></h4>
+                                                        <p><%= menuobj[marr[i]].desc %></p>
                                                     </div>
                                                     </div></a>  
                                                       </div>
-
+                                        <% } %>
+<!-- for loop end -->
                                                      </div>
                 
                                                     </div>
@@ -414,23 +421,26 @@
                                                     <div class="tab-content">
                 <div id="home" class="tab-pane fade in active">
                   <h4 style="padding-top:12px;">Desserts</h4>
+        <!-- for loop start -->
+     <% for(var i = 0; i<dc;i++) { %>    
                  <div class="list-group">
                             <a href="#" class="list-group-item">
                             
                                                 <div class="media">
-                                                    <span style="float:right; margin-top:12px;">
+                                                     <span style="float:right; margin-top:12px;">
                                                   
-                                   <p>er43r</p></span>                                     
+                                   <p><%= menuobj[darr[i]].price %></p></span>                                       
                                                                          
                                      
                                                     
                                                     <div class="media-body">
-                                                        <h4 class="media-heading">Pizza Hunt</h4>
-                                                        <p>Online delivery</p>
+                                                        <h4 class="media-heading"><%= menuobj[darr[i]].fname %></h4>
+                                                        <p><%= menuobj[darr[i]].desc %></p>
                                                     </div>
                                                     </div></a>  
                                                       </div>
-
+                                        <% } %>
+            <!-- for loop end -->
                                                      </div>
                 
                                                     </div>

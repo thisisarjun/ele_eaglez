@@ -150,10 +150,38 @@ module.exports = {
 	},
 	'menuv' : function(req, res, next) {
 		Menu.find({hid:req.param('id')}, function(err, result){
+			console.log(result);
+			var sc,scarr,mc,mcarr,dc,dcarr;
 			if(err) {
 				console.log('query error:'+ err);
 			}
-			res.view({menuobj:result});
+
+	
+			objhelper.getCount(result, 'ftype', 's', function(scount, sind){
+				sc = scount;
+				sarr = sind;
+			});	
+			objhelper.getCount(result, 'ftype', 'm', function(mcount, mind){
+				mc = mcount;
+				marr = mind;
+			});
+			objhelper.getCount(result, 'ftype', 'd', function(dcount,dind){
+				dc = dcount;
+				darr = dind;
+			});	
+			console.log('scount is ' + sc);	
+			console.log('sarr is ' + sarr);
+			console.log('mcount is ' + mc);
+			console.log('marr is ' + marr);
+			console.log('dcount is ' + dc);
+			console.log('darr is ' + darr);
+			res.view({menuobj:result,
+					sc:sc,
+					sarr:sarr,
+					mc:mc,
+					marr:marr,
+					dc:dc,
+					darr:darr });
 		});
 		
 	}
