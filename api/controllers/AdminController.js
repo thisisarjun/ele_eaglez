@@ -35,13 +35,16 @@ module.exports = {
 		console.log('here in viewH');
 		Hotel.find({}, function(err,hotel){
 			User.findOne({id:req.session.uid}, function(err, user){
-				res.view('admin/viewH',{layout:'layouts/admin',
+				res.view({layout:'layouts/admin',
 										hotelobj:hotel,
 										adminobj:user});
 			});
 			
-		});
-		
+		}); 
+
+	},
+	'viewHc' : function(req, res, next) {
+		res.view();
 	},
 
 	'ViewU' : function(req, res, next) {

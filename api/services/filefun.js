@@ -32,26 +32,12 @@ module.exports = {
 							};
 							return;
 						}
-						var fname = uploadedFile[0].fd.substring(uploadedFile[0].fd.lastIndexOf('\\') + 1);
-						console.log
-						fs.access(tempath, function(err){
-							if(err) {
-								console.log('doesnt exist');
-								fs.mkdir(tempath, function(err){
-									if(err){
-										console.log('error in making directory');
-										console.log(err);
-									}
-								});
-							}
-							else {
-							 path = path + fname;
-							 tempath = tempath + fname;
-							console.log('before readstream, path is'+path);
-							console.log('before readstream, tempath is'+tempath);
-							fs.createReadStream(path).pipe(fs.createWriteStream(tempath));
-							}
-						});
+						var fname = uploadedFile[0].fd.substring(uploadedFile[0].fd.lastIndexOf('/') + 1);
+						path = path + fname;
+						tempath = tempath + fname;
+						console.log('before readstream, path is'+path);
+						console.log('before readstream, tempath is'+tempath);
+						fs.createReadStream(path).pipe(fs.createWriteStream(tempath));
 						model.update(id,{fd:fname})
 						.exec(function(err){
 							if(err) {

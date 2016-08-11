@@ -77,7 +77,6 @@ label.label-floatlabel {
   height: auto;
   min-height: 100%;
   z-index: -100;
-  background: transparent url(../images/bg.jpg) no-repeat;
   background-size: cover;
   }
 
