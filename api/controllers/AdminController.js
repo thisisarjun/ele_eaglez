@@ -28,7 +28,11 @@ module.exports = {
 	},
 
 	'createCu' : function(req, res, next) {
-		res.view('admin/createCu',{layout:'layouts/admin'});
+		User.findOne(req.session.uid, function(err, admin){
+
+			res.view('admin/createCu',{layout:'layouts/admin',
+										adminobj:admin});
+		});
 	},
 
 	'viewH' : function(req, res, next) {
@@ -42,9 +46,6 @@ module.exports = {
 			
 		}); 
 
-	},
-	'viewHc' : function(req, res, next) {
-		res.view();
 	},
 
 	'ViewU' : function(req, res, next) {

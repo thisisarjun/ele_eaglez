@@ -38,6 +38,9 @@ module.exports.policies = {
  },
  MenuController : {
   '*' : 'flash'
+ },
+ CuisineController : {
+  '*' : 'flash'
  }
 
   /***************************************************************************
