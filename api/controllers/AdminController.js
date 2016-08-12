@@ -9,8 +9,11 @@ module.exports = {
 	//add hotel details
 	'createH' : function(req, res, next) {
 		User.findOne(req.session.uid, function(err, admin){
-			res.view('admin/createH',{layout:'layouts/admin',
-										adminobj:admin});			
+			Cuisine.find({}, function(err, cuisobj){
+				res.view('admin/createH',{layout:'layouts/admin',
+											adminobj:admin,
+											cuisobj:cuisobj});
+			});			
 		});
 	},
 	
@@ -29,7 +32,6 @@ module.exports = {
 
 	'createCu' : function(req, res, next) {
 		User.findOne(req.session.uid, function(err, admin){
-
 			res.view('admin/createCu',{layout:'layouts/admin',
 										adminobj:admin});
 		});

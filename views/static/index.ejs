@@ -96,14 +96,11 @@
          
           
                       <select class="form-control dropdownSearch " id="category" name="cuisine">
-
                         <option value="">Select Cuisine</option>
-                        <option value="Kerala">Kerala</option>
-                        <option value="Indian">Indian</option>
-                        <option value="North Indian">North Indian</option>
-                        <option value="Thai">Thai</option>
-                        <option value="Chinese">Chinese</option>
-                        <option value="Continental">Continental</option>
+                <% var arrlen = cuisobj.length;
+                for(var i=0;i<cuisobj.length;i++){ %>
+                        <option value="<%= cuisobj[i].name %>"><%= cuisobj[i].name %></option>
+                    <% } %>
                         </select>
 
                         

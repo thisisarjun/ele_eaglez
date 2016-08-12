@@ -112,12 +112,16 @@
                   <input type="text" name="howner" class="form-control" id="exampleInputEmail1" placeholder="Enter Owner's name">
                 </div>
 
-
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Cuisine Type</label>
-                  <input type="text" name="cuisine" class="form-control" id="exampleInputEmail1" placeholder="Enter Cuisine">
-                </div>
-
+          <div class="form-group">
+                  <label for="exampleInputEmail1">Cuisine Name</label>
+                  <p><select name="cuisine" class="custom-select" style="width:100%; height:30px; border-color: #d2d6de;">
+                      <%  var arrlen = cuisobj.length;
+                      for(var i=0;i<arrlen;i++) {   %>
+                      <option value="<%= cuisobj[i].name %>"><%= cuisobj[i].name %> </option>
+                      <% }  %>
+        </select>
+    </p>
+ </div>
 
                 <div class="form-group">
                   <label for="exampleInputEmail1">Address</label>
