@@ -115,11 +115,13 @@
                         <!--//col-md-offset-3 col-md-3-->
                     <div class="col-md-offset-3 col-md-3" style="padding-top:15px;" id="ajaxLocation">
 
-                     <select class="form-control dropdownSearch " id="location" name="state">
-                <option value="">Select State</option>
-                <option value="Dubai">Dubai</option>
-                <option value="Abu Dhabi">Abu Dhabi</option>
-                </select>
+                        <select class="form-control dropdownSearch " id="city" name="city">
+                        <option value="">Select City</option>
+                <% var arrlen = cityobj.length;
+                for(var i=0;i<cityobj.length;i++){ %>
+                        <option value="<%= cityobj[i].id %>"><%= cityobj[i].name %></option>
+                    <% } %>
+                        </select>
                      </div><!--//col-md-offset-3 col-md-3-->
                         
 
@@ -128,18 +130,8 @@
                     <!--//col-md-offset-3 col-md-3-->
                     <div class="col-md-offset-0 col-md-offset-3 col-md-3" style="padding-top:15px;" id="ajaxArea">
 
-                   <select class="form-control dropdownSearch " id="area" name="city">
-                            <option value="">Select City</option>
-                            <option value="Abu Hail">Abu Hail</option>
-                            <option value="Academic City">Academic City</option>
-                            <option value="Al Awir">Al Awir</option>
-                            <option value="Al Aman">Al Aman</option>
-                            <option value="Al Bahia">Al Bahia</option>
-                            <option value="Al Bandar">Al Bandar</option>
-                            <option value="Al Dafrah">Al Dafrah</option>
-                            <option value="Al Falah City">Al Falah City</option>
-                            <option value="Al Hosn">Al Hosn</option>
-                            <option value="Al Ittihad">Al Ittihad</option>
+                   <select class="form-control dropdownSearch " id="area" name="area">
+                            <option value="">Select Area</option>
                             </select>
 
                         
@@ -165,6 +157,6 @@
 </div><!--//container-->
 
 
-
+<script src="/js/citar.js"></script>
 </body>
 </html>

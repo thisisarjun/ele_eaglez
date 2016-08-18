@@ -4,7 +4,7 @@
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  detail containing hotels.
- Id |	Hname |	Howner |	Address |	City | State |	Country |	Pin |	phone |	status | fd  | fname
+ Id |	Hname |	Howner |	Address |	City | Area | State |	Country |	Pin |	phone |	status | fd  | fname
  */
 
 module.exports = {
@@ -30,8 +30,13 @@ module.exports = {
       type : 'string',
       required : true
     },
+    'area' : {
+      type : 'string',
+      required : true
+    },
   	'state' : {
   		type : 'string',
+      defaultsTo : 'Kerala'
   	},
   	'country' : {
   		type : 'string'

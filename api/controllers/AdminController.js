@@ -37,6 +37,23 @@ module.exports = {
 		});
 	},
 
+	'createc' : function(req, res, next) {
+		User.findOne(req.session.uid, function(err, admin){
+			res.view('admin/createc',{layout:'layouts/admin',
+										adminobj:admin});
+		});
+	},
+
+	'createa' : function(req, res, next) {
+		City.find({}, function(err, result) {
+			User.findOne(req.session.uid, function(err, admin){
+				res.view('admin/createa',{layout:'layouts/admin',
+											adminobj:admin,
+											cityobj:result});
+			});
+		});
+	},
+
 	'viewH' : function(req, res, next) {
 		console.log('here in viewH');
 		Hotel.find({}, function(err,hotel){

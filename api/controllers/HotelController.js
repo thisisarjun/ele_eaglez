@@ -32,7 +32,7 @@ module.exports = {
 	},
 	'search' : function(req, res, next) {
 		
-		Hotel.find().where({'state':req.param('state'),
+		Hotel.find().where({'area':req.param('area'),
 			'cuisine' : req.param('cuisine'),
 			'city' : req.param('city')
 			}).exec(function (err,result){
