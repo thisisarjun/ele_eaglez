@@ -13,6 +13,23 @@ module.exports = {
   		required : true,
   		unique : true
   	}
-  }
+  },
+/*
+	the below function is used for view areas, to get the list of cities under which it comes, in index wise order.
+*/
+  clist : function(aobj, callback) {
+  		var cityname = new Array();
+		aobj.forEach(function(currv, index) {
+			City.find({id:currv.cid}, function(err, city){
+				if(err) {
+					console.log(err);
+				}
+				cityname[index] = city[0].name;
+				if(cityname.length == aobj.length) {
+					return callback(cityname);
+				}
+			});
+		});
+	}
+ 
 };
-

@@ -4,7 +4,7 @@
  * @description :: Server-side logic for managing admins
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
-
+//	var Promise = require('promise');
 module.exports = {
 	//add hotel details
 	'createH' : function(req, res, next) {
@@ -79,7 +79,23 @@ module.exports = {
 											adminobj:admin});			
 			});	
 		});
+	},
+
+	'viewa' : function(req, res, next) {
+		User.findOne(req.session.uid, function(err, admin){
+			Area.find({}, function(err, area){
+				City.clist(area, function(cityname){
+				return res.view('admin/viewa',{layout:'layouts/admin',
+													areaobj : area,
+													adminobj:admin,
+													cityname : cityname});	
+
+				});							
+			});
+		});
+		
 	}
+	
 	
 };
 
