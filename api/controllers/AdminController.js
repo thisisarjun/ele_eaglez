@@ -8,11 +8,15 @@
 module.exports = {
 	//add hotel details
 	'createH' : function(req, res, next) {
+
 		User.findOne(req.session.uid, function(err, admin){
 			Cuisine.find({}, function(err, cuisobj){
-				res.view('admin/createH',{layout:'layouts/admin',
-											adminobj:admin,
-											cuisobj:cuisobj});
+				City.find({}, function(err, cityobj){ 
+					res.view('admin/createH',{layout:'layouts/admin',
+												adminobj:admin,
+												cuisobj:cuisobj,
+												cityobj:cityobj});
+				});
 			});			
 		});
 	},
