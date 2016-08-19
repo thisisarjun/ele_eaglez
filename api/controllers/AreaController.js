@@ -29,12 +29,12 @@ module.exports = {
 							'message' : 'successfully added',
 							'color' : 1
 						};
-						console.log('before leaving');	
-						console.log(req.session.flash);	
+						console.log('before leaving');
+						console.log(req.session.flash);
 						res.redirect('admin/createa');
-						return;			
+						return;
 					}
-					
+
 				});
 			}
 			else {
@@ -47,7 +47,9 @@ module.exports = {
 			}
 
 		},
-
+/*
+	below function is used in the 'subsequent drop down list of cities and areas.'
+*/
 	'deci' : function(req, res, next) {
 		//console.log(req.params.all());
 		Area.find({cid:req.param('id')}, function(err, result){
@@ -56,6 +58,16 @@ module.exports = {
 			}
 			res.send(result);
 		});
-	}	
-};
+	},
 
+	// delete area record.
+	'destroy' : function(req, res, next) {
+		var ida = req.param('id');
+		Area.destroy({id:ida}, function(err){
+			if(err) {
+				console.log(err);
+			}
+			res.redirect('/admin/viewa');
+		});
+	}
+};

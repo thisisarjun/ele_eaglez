@@ -11,16 +11,16 @@ module.exports = {
 
 		User.findOne(req.session.uid, function(err, admin){
 			Cuisine.find({}, function(err, cuisobj){
-				City.find({}, function(err, cityobj){ 
+				City.find({}, function(err, cityobj){
 					res.view('admin/createH',{layout:'layouts/admin',
 												adminobj:admin,
 												cuisobj:cuisobj,
 												cityobj:cityobj});
 				});
-			});			
+			});
 		});
 	},
-	
+
 	'createM' : function(req, res, next) {
 		User.findOne(req.session.uid, function(err, admin){
 			Hotel.find({},function(err, hotel){
@@ -31,7 +31,7 @@ module.exports = {
 														});
 			});
 		});
-		
+
 	},
 
 	'createCu' : function(req, res, next) {
@@ -66,8 +66,8 @@ module.exports = {
 										hotelobj:hotel,
 										adminobj:user});
 			});
-			
-		}); 
+
+		});
 
 	},
 
@@ -76,8 +76,8 @@ module.exports = {
 			User.findOne(req.session.uid, function(err, admin){
 				res.view('admin/ViewU',{layout:'layouts/admin',
 											userobj : user,
-											adminobj:admin});			
-			});	
+											adminobj:admin});
+			});
 		});
 	},
 
@@ -88,14 +88,33 @@ module.exports = {
 				return res.view('admin/viewa',{layout:'layouts/admin',
 													areaobj : area,
 													adminobj:admin,
-													cityname : cityname});	
+													cityname : cityname});
 
-				});							
+				});
 			});
 		});
-		
-	}
-	
-	
-};
 
+	},
+
+	'viewc' : function(req, res, next) {
+		City.find({}, function(err, city){
+			User.findOne(req.session.uid, function(err, admin){
+				res.view('admin/viewc',{layout:'layouts/admin',
+											cityobj : city,
+											adminobj:admin});
+			});
+		});
+	},
+
+	'viewcu' : function(req, res, next) {
+		Cuisine.find({}, function(err, cuisine){
+			User.findOne(req.session.uid, function(err, admin){
+				res.view('admin/viewcu',{layout:'layouts/admin',
+											cuobj : cuisine,
+											adminobj:admin});
+			});
+		});
+	}
+
+
+};

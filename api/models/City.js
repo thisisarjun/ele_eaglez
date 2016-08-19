@@ -18,18 +18,24 @@ module.exports = {
 	the below function is used for view areas, to get the list of cities under which it comes, in index wise order.
 */
   clist : function(aobj, callback) {
+  		console.log('inside clist ok');
   		var cityname = new Array();
-		aobj.forEach(function(currv, index) {
-			City.find({id:currv.cid}, function(err, city){
-				if(err) {
-					console.log(err);
-				}
-				cityname[index] = city[0].name;
-				if(cityname.length == aobj.length) {
-					return callback(cityname);
-				}
-			});
-		});
+      if(aobj.length > 0) {
+      		aobj.forEach(function(currv, index) {
+      			City.find({id:currv.cid}, function(err, city){
+      				if(err) {
+      					console.log(err);
+      				}
+      				cityname[index] = city[0].name;
+      				if(cityname.length == aobj.length) {
+      					return callback(cityname);
+      				}
+      			});
+      		});
+      }
+      else {
+        return callback([]);
+      }
 	}
- 
+
 };

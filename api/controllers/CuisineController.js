@@ -25,12 +25,12 @@ module.exports = {
 						'message' : 'successfully added',
 						'color' : 1
 					};
-					console.log('before leaving');	
-					console.log(req.session.flash);	
+					console.log('before leaving');
+					console.log(req.session.flash);
 					res.redirect('admin/createCu');
-					return;			
+					return;
 				}
-				
+
 			});
 		}
 		else {
@@ -42,7 +42,17 @@ module.exports = {
 			return;
 		}
 
-	}
-	
-};
+	},
 
+//delete cuisine
+'destroy' : function(req, res, next) {
+			var id = req.param('id');
+				Cuisine.destroy({id:id}, function(err){
+					if(err) {
+						return console.log(err);
+					}
+					res.redirect('/admin/viewcu');
+				});
+
+	}
+};

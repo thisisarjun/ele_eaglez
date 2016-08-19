@@ -25,12 +25,12 @@ module.exports = {
 							'message' : 'successfully added',
 							'color' : 1
 						};
-						console.log('before leaving');	
-						console.log(req.session.flash);	
+						console.log('before leaving');
+						console.log(req.session.flash);
 						res.redirect('admin/createc');
-						return;			
+						return;
 					}
-					
+
 				});
 			}
 			else {
@@ -42,7 +42,24 @@ module.exports = {
 				return;
 			}
 
+		},
+		/*
+			destroy function of city and areas under the city
+		*/
+	'destroy' : function(req, res, next) {
+				var cid = req.param('id');
+				Area.destroy({cid:cid}, function(err){
+					if(err) {
+						return console.log(err);
+					}
+					City.destroy({id:cid}, function(err){
+						if(err) {
+							return console.log(err);
+						}
+						res.redirect('/admin/viewc');
+					});
+				});
+
 		}
 
 };
-

@@ -95,7 +95,7 @@ background-color: #9F0011;
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-       View Added Areas
+       View Users
         <small>preview of user table</small>
       </h1>
       <ol class="breadcrumb">
@@ -113,7 +113,7 @@ background-color: #9F0011;
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Area list</h3>
+              <h3 class="box-title">City list</h3>
 
               <div class="box-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
@@ -130,20 +130,18 @@ background-color: #9F0011;
               <table class="table table-hover">
                 <tr>
                   <th>No</th>
-                  <th>AreaName</th>
-                  <th>CityName</th>
-                  <th></th>
+                  <th>Name</th>
+                  <th>Status</th>
                   <th></th>
                 </tr>
-            <% var length = areaobj.length;
+            <% var length = cityobj.length;
             var i =0;
             for( i =0; i<length; i++ ) { %>
                 <tr>
                   <td><%= i+1 %></td>
-                  <td><%= areaobj[i].name %></td>
-                  <td><%= cityname[i] %></td>
+                  <td><%= cityobj[i].name %></td>
                   <td><span class="label label-success">Approved</span></td>
-                  <td><a href="/area/destroy?id=<%= areaobj[i].id %>">Delete</a> </td>
+                  <td><a href="/city/destroy?id=<%= cityobj[i].id %>">Delete</a> </td>
                 </tr>
               <% } %>
               </table>
