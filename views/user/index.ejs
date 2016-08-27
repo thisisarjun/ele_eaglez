@@ -75,7 +75,7 @@
             <!--col-md-8-->
             <div class="col-md-8 col-md-offset-2">
 
-            <h1 style="text-align:center; color:#fff; font-family:Verdana, Geneva, sans-serif;">Order from 168 restaurants</h1>
+            <h1 style="text-align:center; color:#fff; font-family:Verdana, Geneva, sans-serif;">Order from <%= req.session.hocount %> restaurants</h1>
 
             <p style="text-align:center; color:#000; font-family:Verdana, Geneva, sans-serif;">             delivering to your door</p>
 
@@ -124,36 +124,28 @@
               <div class="collapse list-group-submenu list-group-submenu-1" id="SubSubMenu1">
 
                 <a href="#" class="list-group-item" data-parent="#SubSubMenu1">
+                <%
+                if(req.session.allcuisine) {
+                  for(var i=0; i<req.session.allcuisine.length; i++) {
 
+                %>
                      <div class="checkbox checkbox-inline">
-                        <input type="checkbox" id="inlineCheckbox1" value="option1">
-                        <label for="inlineCheckbox1"> North </label>
+                        <input class="filtbox" type="checkbox" id="inlineCheckbox1" value="<%= req.session.allcuisine[i].name %>">
+                        <label for="inlineCheckbox1"> <%= req.session.allcuisine[i].name %> </label>
                     </div>
 
 
 
                      <br>
-
-                    <div class="checkbox checkbox-inline">
-                        <input type="checkbox" id="inlineCheckbox1" value="option1">
-                        <label for="inlineCheckbox1"> Chinees </label>
-                    </div>
-
-
-                   <br>
-
-                    <div class="checkbox checkbox-inline">
-                        <input type="checkbox" id="inlineCheckbox1" value="option1">
-                        <label for="inlineCheckbox1"> Kerala </label>
-
-                        <br>
-                    </div>
-
+                <%
+              }
+            }
+                %>
 
                     <div style="margin-top:20px; margin-left: 30px; ">
 
-                   <button type="button" class="btn btn-danger btn-sm">Apply</button>
-                   <button type="button" class="btn btn-default btn-sm">Cancel</button>
+                   <button id="applybut" type="button" class="btn btn-danger btn-sm">Apply</button>
+                   <button id="cancelbut" type="button" class="btn btn-default btn-sm">Cancel</button>
 
                       </div>
                     </a>
@@ -171,10 +163,10 @@
 
 <!-- list group -->
 
-              <div class="col-md-9" style=" margin-top:0px;">
+              <div id="parent" class="col-md-9" style=" margin-top:0px;">
 
 
-                  <div class="list-group">
+                  <div id= "divcon" class="list-group">
         <% if(obj) {
     for(var i =0; i<obj.length;i++)
         {
@@ -260,6 +252,19 @@
                     <script src="js/jquery.js"></script>
                      <!-- Bootstrap Core JavaScript -->
                     <script src="js/bootstrap.min.js"></script>
+<!-- script for cancel button in index    -->
+    <script>
+var cancelbut = document.getElementById('cancelbut');
+var filtbox = document.getElementsByClassName('filtbox');
+cancelbut.addEventListener('click', function(){
+  for(var i = filtbox.length-1; i>=0; i--) {
+    //alert(filtbox[i]);
+    filtbox[i].checked = false;
+  }
+});
+    </script>
+
+<script src="/js/indfilt.js"></script>
 
 
 

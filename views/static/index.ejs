@@ -12,8 +12,8 @@
     <title>Eatlykeagles</title>
 
 
-    
-    
+
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -21,19 +21,19 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
- 
- 
+
+
  <style>
- 
+
  .btn-danger {
 	 margin-top:30px;
     color: #fff;
     background-color: #9F0011;
     border-color:transparent;
 }
- </style>   
-   
-    
+ </style>
+
+
 
 
 
@@ -44,22 +44,22 @@
 <!---video background-->
    <div class="video-overlay"></div>
     <video autoplay loop muted poster="../images/user/bg.jpg" id="video-bg">
- 
+
      <source src="../media/intro.webm" type="video/webm">
      <source src="../media/intro.mp4" type="video/mp4">
      </video>
-    
+
 <!---//video background-->
-   
+
 <!--container-->
 
      <div class="container" style="z-index:9999; position:relative;">
-     
+
      <nav>
-     <!-- my account -->  
+     <!-- my account -->
  <% if(userobj == null) {  %>
     <%- partial('../partials/user_login_signup') %>
-    <% } 
+    <% }
  else { console.log(userobj); %>
     <%- partial('../partials/user_logged_in') %>
 <% } %>
@@ -70,32 +70,32 @@
 <!--logo with search area-->
 <div class="conatiner" style="margin-top:150px;">
 
-                    <form action="../hotel/search"  method="post"><input name="" type="hidden" value="" /> 
+                    <form action="../hotel/search?nwo=1"  method="post"><input name="" type="hidden" value="" />
                     <div class="row">
                     <div class="col-md-12">
-                    
+
                     <!--col-md-4-->
                     <div class="col-md-4 col-md-offset-4">
                     <img style="margin:0 auto;" class="img-responsive" src="../images/user/indexLogo.png"/>
                     <hr>
                     </div><!--//col-md-4-->
-                    
+
                     </div><!--col-md-12-->
                     </div><!--row-->
-                    
-                    
+
+
                     <!--row-->
                     <div class="row">
                     <!--col-md-offset-4 col-md-offset-4 col-md-4-->
-                    
+
                         <div class="col-md-offset-4 col-md-offset-4 col-md-4" id="ajaxCategory">
 
-         
-         
-         
-         
-          
-                      <select class="form-control dropdownSearch " id="category" name="cuisine">
+
+
+
+
+
+                      <select class="form-control dropdownSearch" id="category" name="cuisine">
                         <option value="">Select Cuisine</option>
                 <% var arrlen = cuisobj.length;
                 for(var i=0;i<cuisobj.length;i++){ %>
@@ -103,13 +103,13 @@
                     <% } %>
                         </select>
 
-                        
+
                         </div><!--//col-md-offset-4 col-md-offset-4 col-md-4-->
                         </div><!--row-->
-                        
-                        
-                        
-                        
+
+
+
+
                         <!--row-->
                         <div class="row">
                         <!--//col-md-offset-3 col-md-3-->
@@ -123,10 +123,10 @@
                     <% } %>
                         </select>
                      </div><!--//col-md-offset-3 col-md-3-->
-                        
 
 
-                        
+
+
                     <!--//col-md-offset-3 col-md-3-->
                     <div class="col-md-offset-0 col-md-offset-3 col-md-3" style="padding-top:15px;" id="ajaxArea">
 
@@ -134,26 +134,26 @@
                             <option value="">Select Area</option>
                             </select>
 
-                        
+
                     </div><!--//col-md-offset-3 col-md-3-->
                     </div><!--row-->
-                    
-                    
-                    
-                    
+
+
+
+
                     <div class="row">
                     <p style="text-align:center;">
                     <input type="submit" class=" btn-danger btn-lg" value="Search"></button>
                     </p>
                     </div><!--row-->
-                    
+
                     </form>
                     </div><!--search area containe//-->
-                    
-                    
-                    
-                   
-            
+
+
+
+
+
 </div><!--//container-->
 
 
