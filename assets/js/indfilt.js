@@ -99,9 +99,9 @@
         var p1 = document.createElement('p');
         p1.appendChild(document.createTextNode(obj[i].address));
         var p2 = document.createElement('p');
-        p1.appendChild(document.createTextNode(obj[i].city));
+        p2.appendChild(document.createTextNode(obj[i].city));
         var p3 = document.createElement('p');
-        p1.appendChild(document.createTextNode(obj[i].pin));
+        p3.appendChild(document.createTextNode(obj[i].pin));
         div_mediab.appendChild(p1);
         div_mediab.appendChild(p2);
         div_mediab.appendChild(p3);
