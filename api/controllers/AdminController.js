@@ -114,6 +114,16 @@ module.exports = {
 											adminobj:admin});
 			});
 		});
+	},
+
+	'viewre' : function(req, res, next) {
+		Hotel.find({}, function(err, hotel){
+			User.findOne(req.session.uid, function(err, admin){
+				res.view('admin/viewre',{layout:'layouts/admin',
+											hobj : hotel,
+											adminobj:admin});
+			});
+		});
 	}
 
 

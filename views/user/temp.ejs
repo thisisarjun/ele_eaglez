@@ -10,20 +10,9 @@
 	<input type="text" name="username" class="formco" /></br>
 	<!-- <input type="file" name="fileup" /> -->
 	<input type="submit" name="submit" value="chumma" />
-	 <input type="hidden" name="_csrf" value="<%= _csrf %>" /> 	
+	 <input type="hidden" name="_csrf" value="<%= _csrf %>" />
 </form>
 <script>
-	document.forms['formed'].addEventListener("submit",function(event){
-		var formobj = document.forms['formed'];
-		var formele = formobj.elements;
-		for(var i =0; i<formele.length;i++) {
-			if(formele[i].value=="") {
-				formele[i].style.border= '1px solid red';
-				event.preventDefault();
-			}
-			else {
-				formele[i].style.border = '1px solid #72c02c'
-			}
-		}
-	});
+localStorage.one = 'hehe';
+console.log(localStorage.one);
 </script>

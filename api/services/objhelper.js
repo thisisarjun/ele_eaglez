@@ -19,6 +19,18 @@ module.exports = {
 
 		}
 		callback(count, indarr);
+	},
+//get the simple count, sprop - sum property
+// cprop - count property
+	'getCounter' : function(obj,sprop, callback) {
+			var length = obj.length;
+			var count = 0;
+			var sum= 0;
+			for(var i =0; i<obj.length; i++) {
+				count += 1;
+				sum += parseInt(obj[i][sprop]);
+			}
+			callback(count, sum);
 	}
 
 }

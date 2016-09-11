@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+l<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -11,7 +11,7 @@
 
     <title>EatlykEagles</title>
 
-  
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -19,7 +19,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    
+
     <style>
     .navbar-default {
     background-color:#9F0011;
@@ -34,233 +34,480 @@
    .modal-backdrop  {
       display : none;
     }
-    
 
+    .glyphicon-plus-sign{
+     font-size: 25px;
+     color: #5cb85c;
+
+    }
+
+    .round-button {
+       display:block;
+       width:30px;
+       height:30px;
+       line-height:26px;
+       border: 2px solid #f5f5f5;
+       border-radius: 50%;
+       color:#f5f5f5;
+       text-align:center;
+       text-decoration:none;
+       background: #289c13;
+       box-shadow: 0 0 3px gray;
+       font-size:19px;
+       font-weight:bold;
+   }
+   .round-button:hover {
+       background: #262626;
+   }
+   .delbut{
+   width: 21px;
+    height: 21px;
+    line-height: 11px;
+    border: 2px solid #f5f5f5;
+    border-radius: 50%;
+    color: #f5f5f5;
+    text-align: center;
+    text-decoration: none;
+    background: #9F0011;
+    box-shadow: 0 0 3px gray;
+    font-size: 11px;
+    font-weight: bold;
+}
+.delbut:hover {
+    background: #262626;
+}
     </style>
-    
-  
-  
-  
-    
-  
+
+
+
+
+
+
 </head>
 <body style="background-color:#fff;">
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-<div class="container"> 
-    
+<div class="container">
+
     <!--logo-->
    <a  class="navbar-brand" href="../static/index"><img style="margin-top:-10px;" class="img-responsive" src="../images/user/logo2.png" alt="Eat Lyk Eagles"></a>
-   
-   
 
 
-</div>  
+
+
+</div>
 </div>
 
 
 
 
             <!--background img-->
-            
+
     <div class="container-fluid" style="background:url(../images/user/bg2.JPG) no-repeat center ;      background-size:cover; width:100%; height:400px;">
              <div class="container" style="margin-top:150px;">
             <!--row-->
             <div class="row" style="margin-top:150px;">
             <!--col-md-8-->
             <div class="col-md-4 col-md-offset-4">
-            
+
 
           <p style="text-align:center;">  <button type="button" onclick="javascript:history.back()" class="btn btn-primary active">NOT YOUR TASTE?</button></p>
-            
-            
+
+
             </div><!--col-md-8-->
             </div> <!--row-->
             </div><!-- container -->
             </div> <!--/background img-->
-            
-            
-           
+
+
+
             <section class="content-header">
      <div class="container" style="text-align:center;">
       <div class="row">
       <div class="col-md-8 col-md-offset-2">
       <ol class="breadcrumb">
       <li><a href="index.html"><i class="fa fa-dashboard"></i> Home</a></li>
-        
+
         <li class="active">View Menu</li>
       </ol>
       </div>
       </div>
       </div>
     </section>
-           
-            
-            
-            
-           
-            
-            
-            
-         
-                <!--list views-->
-                <div class="container" style="margin-top:10px;">
-                 <div class="row">
-                 <div class="col-md-3">
-   
-                <div class="list-group">
-                <p class="list-group-item" style="font-weight: 700; border-top:1px solid #9F0011;">
-                    &nbsp;&nbsp;Sort by
-                </p>
-                <a class="list-group-item" href="#">
-                <span class="glyphicon glyphicon-chevron-right" style="color:#9F0011"></span>                 &nbsp;&nbsp;Ratings
-                </a>
-                <a class="list-group-item" href="#">
-                    Lowest price
-                </a>
-                <a class="list-group-item" href="#">
-                    Restaurant name
-                </a>
-                <a class="list-group-item" href="#">
-                    Distance
-                </a>
-                
-                </div>
-            
 
-                <div class="list-group">
-                <p class="list-group-item" style="font-weight: 700; border-top:1px solid #9F0011;">
-                    &nbsp;&nbsp;Cuisines
-                </p>
-                <a class="list-group-item" href="#">
-                    <span class="glyphicon glyphicon-chevron-right" style="color:#9F0011"></span>                &nbsp;&nbsp;All
-                </a>
-                <a class="list-group-item" href="#">
-                    Non-Veg
-                </a>
-                <a class="list-group-item" href="#">
-                    Veg
-                </a>
-                <a class="list-group-item" href="#">
-                    Indian
-                </a>
-                <a class="list-group-item" href="#">
-                    Chinese
-                </a>
+
+
+
+
+
+
+
+
+    <!--list views-->
+                   <div class="container" style="margin-top:20px;">
+                   <div class="row">
+
+                    <div class="col-md-8">
+<!-- Starters start -->
+                  <h3>Starters</h3>
+    <!-- for loop start  -->
+    <% for(var i = 0; i<sc;i++) { %>
+                    <li  class="list-group-item">
+
+                   <div class="panel-body">
+   					<div class="row">
+       						<div class="col-xs-2">
+       						</div>
+       						<div class="col-xs-4" style="margin-top:40px;">
+       							  <h4 class="product-name"><strong><%= menuobj[sarr[i]].fname %></strong></h4><h4><small><%= menuobj[sarr[i]].desc %></small></h4>
+       						</div>
+       						<div class="col-xs-6">
+             							<div class="col-xs-6 text-right">
+             								       <h4><strong><%= menuobj[sarr[i]].price %><span class="text-muted">x</span></strong></h4>
+             							</div>
+             							<div class="col-xs-3">
+             								       <input type="text" class="form-control input-sm" value="1" height="20">
+             							</div>
+             							<div class="col-xs-2">
+                            <button id="<%= menuobj[sarr[i]].id %>" type="button" class="round-button">+
+                              <input type="hidden" value="<%= menuobj[sarr[i]].fname %>~<%= menuobj[sarr[i]].price %>" />
+                            </button>
+
+             							</div>
+       						</div>
+   					</div>
+   					<hr>
+
+
+
+                    </li>
+              <% } %>
+<!-- Starters end -->
+
+<!-- Main Course Start -->
+                    <h3>Main Course</h3>
+    <% for(var i = 0; i<mc;i++) { %>
+                      <li  class="list-group-item">
+
+                     <div class="panel-body">
+                    <div class="row">
+                    <div class="col-xs-2">
+                    </div>
+                    <div class="col-xs-4" style="margin-top:40px;">
+
+                        <h4 class="product-name"><strong><%= menuobj[marr[i]].fname %></strong></h4><h4><small><%= menuobj[marr[i]].desc %></small></h4>
+                    </div>
+                    <div class="col-xs-6">
+
+                    <div class="col-xs-6 text-right">
+                    <h4><strong><%= menuobj[marr[i]].price %><span class="text-muted">x</span></strong></h4>
+                    </div>
+                    <div class="col-xs-3">
+                    <input type="text" class="form-control input-sm" value="1" height="20">
+                    </div>
+                    <div class="col-xs-2">
+                    <button id="<%= menuobj[marr[i]].id %>" type="button" class="round-button">+
+                      <input type="hidden" value="<%= menuobj[marr[i]].fname %>~<%= menuobj[marr[i]].price %>" />
+                    </button>
+                    </div>
+                    </div>
+                    </div>
+                    <hr>
+                      </li>
+          <% } %>
+
+<!-- Main Course end -->
+
+<!-- Desserts start -->
+                      <h3>Desserts</h3>
+     <% for(var i = 0; i<dc;i++) { %>
+                        <li  class="list-group-item">
+
+                       <div class="panel-body">
+       					<div class="row">
+       						<div class="col-xs-2">
+       						</div>
+       						<div class="col-xs-4" style="margin-top:40px;">
+
+       							<h4 class="product-name"><strong><%= menuobj[darr[i]].fname %></strong></h4><h4><small><%= menuobj[darr[i]].desc %></small></h4>
+       						</div>
+       						<div class="col-xs-6">
+
+       							<div class="col-xs-6 text-right">
+
+       								<h4><strong><%= menuobj[darr[i]].price %><span class="text-muted">x</span></strong></h4>
+       							</div>
+       							<div class="col-xs-3">
+
+       								<input type="text" class="form-control input-sm" value="1" height="20">
+       							</div>
+       							<div class="col-xs-2">
+
+                      <button id="<%= menuobj[darr[i]].id %>" class="round-button" type="button" class="btn1">
+                        +
+                        <input type="hidden" value="<%= menuobj[darr[i]].fname %>~<%= menuobj[darr[i]].price %>" />
+                      </button>
+       							</div>
+       						</div>
+       					</div>
+       					<hr>
+                        </li>
+                <% } %>
+<!-- Desserts End -->
+
+
+
+
+                    </div><!-- col-8 -->
+
+                   <!-- list -->
+                   <!-- calculation div -->
+                   <div class="col-md-4" style=" margin-top:-20px;">
+                        <h3 style="padding-bottom:12px;">WHAT'S HOT ?</h3>
+
+
+                        <div class="card">
+
+                        <div class="panel panel-default">
+                     <div class="panel-heading">
+                     <span class="pull-right"> 3 days
+
+                     </span>
+                         <h3 class="panel-title">
+                             Estimate Delivery time</h3>
+
+                     </div>
+                     <ul class="list-group">
+
+                     <li  class="list-group-item">
+                     <h4 >Your Order</h4>
+                     </li>
+
+                      <li id="lical" class="list-group-item">
+                        <div id="container">
+                        <!-- loop start -->
+                        <div id="topopbut">
+                        <span  class="pull-right">10.00
+                        <button type="button" class="delbut">X</button></span>
+                          <p>Pazhakanji </p>
+
+
+
+                    </div>
+                  </div>
+                      <!-- loop end  -->
+     <hr>
+                      <span class="pull-right"><p id="total" style="font-size:26px;">15.00</p></span>
+                      <p><h3>total</h3> </p></br>
+                      <div style="margin-top:40px;">
+                    <button id="clear" href="" class="btn btn-danger btn-sm">
+                       &nbsp;&nbsp; &nbsp;Clear &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                     </button>
+                      <a href="#" id="checkout" class="btn btn-danger btn-sm pull-right">Checkout</a>
+
+                    </div>
+
+
+
+
+
+                      </li>
+
+                     </ul>
+                 </div>
+             </div>
             </div>
-            
+            <!-- calculation div end -->
             </div>
+                             </div><!--row-->
+                             </div><!--container-->
 
 
 
 
-
-              <div class="col-md-9" style=" margin-top:-20px;">
-
-
-                   <h3 style="padding-bottom:12px;">WHAT'S HOT ?</h3>
-  <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#home">Menu</a></li>
-
-    
-  </ul>
-
-<div class="tab-content">
-    <div id="home" class="tab-pane fade in active">
-      <h4 style="padding-top:12px;">Starters</h4>
-  <!-- for loop start  -->  
-<% for(var i = 0; i<sc;i++) { %>
-     <div class="list-group">
-                <a href="#" class="list-group-item">
-                
-                                    <div class="media">
-                                                    <span style="float:right; margin-top:12px;">
-                                                  
-                                   <p><%= menuobj[sarr[i]].price %></p></span>                                       
-                                                             
-                         
-                                        
-                                        <div class="media-body">
-                                            <h4 class="media-heading"><%= menuobj[sarr[i]].fname %></h4>
-                                            <p><%= menuobj[sarr[i]].desc %></p>
-                                        </div>
-                                        </div></a>  
-                                          </div>
-                    <% } %>
-
-        <!-- for loop end -->
-                                         </div>
-    
-                                        </div>
-
-            
-
-                <div class="tab-content">
-                <div id="home" class="tab-pane fade in active">
-                  <h4 style="padding-top:12px;">Main Course</h4>
-<!-- for loop start -->
-    <% for(var i = 0; i<mc;i++) { %>    
-                 <div class="list-group">
-                            <a href="#" class="list-group-item">
-                            
-                                                <div class="media">
-                                                     <span style="float:right; margin-top:12px;">
-                                                  
-                                   <p><%= menuobj[sarr[i]].price %></p></span>                                       
-                                                                         
-                                     
-                                                    
-                                                    <div class="media-body">
-                                                        <h4 class="media-heading"><%= menuobj[marr[i]].fname %></h4>
-                                                        <p><%= menuobj[marr[i]].desc %></p>
-                                                    </div>
-                                                    </div></a>  
-                                                      </div>
-                                        <% } %>
-<!-- for loop end -->
-                                                     </div>
-                
-                                                    </div>
-
-
-
-                                                    <div class="tab-content">
-                <div id="home" class="tab-pane fade in active">
-                  <h4 style="padding-top:12px;">Desserts</h4>
-        <!-- for loop start -->
-     <% for(var i = 0; i<dc;i++) { %>    
-                 <div class="list-group">
-                            <a href="#" class="list-group-item">
-                            
-                                                <div class="media">
-                                                     <span style="float:right; margin-top:12px;">
-                                                  
-                                   <p><%= menuobj[darr[i]].price %></p></span>                                       
-                                                                         
-                                     
-                                                    
-                                                    <div class="media-body">
-                                                        <h4 class="media-heading"><%= menuobj[darr[i]].fname %></h4>
-                                                        <p><%= menuobj[darr[i]].desc %></p>
-                                                    </div>
-                                                    </div></a>  
-                                                      </div>
-                                        <% } %>
-            <!-- for loop end -->
-                                                     </div>
-                
-                                                    </div>
-
-                        </div>
-            </div><!--row-->
-            </div><!--container-->
-			    
-
-			
-
-
-         
 <%- partial('../partials/footer') %>
-             
 
+<script>
+  window.onload = function() {
+    //this line of code should be deleted after testing
+    if(typeof localStorage['count'] == 'undefined')
+        localStorage.count=0;
+    caldisp();
+
+  }
+  var atag = document.getElementById('checkout');
+  atag.addEventListener("click", checkout);
+
+  function checkout(e) {
+    console.log(e.target);
+    var ptotal = document.getElementById('total');
+    delete localStorage;
+
+    var totale;
+    console.log(ptotal.innerHTML);
+    if(ptotal.innerHTML == '') {
+      alert('you have to add something first');
+    }
+    else {
+      totale = ptotal.innerHTML;
+      console.log('inside else');
+      console.log(ptotal.innerHTML);
+      window.location = '/report/create?amt='+totale.toString();
+    }
+  }
+  var addbut = document.getElementsByClassName('round-button');
+
+  //note addbut is an array of elements.
+  for(var i=0; i<addbut.length; i++) {
+      addbut[i].addEventListener("click",listfunct)
+  }
+
+
+  //listener function for the add to cart button.
+  function listfunct(e) {
+    try{
+        var detail = e.target.childNodes;
+        //component is a component array
+        var components = detail[1].value.split('~');
+        var fname = components[0];
+        var price = components[1]
+        var inval = e.target.parentNode.parentNode.childNodes;
+        var qty = inval[3].childNodes[1].value;
+        var butid = e.target.id;
+        pushobj(fname, price, qty, butid);
+        caldisp();
+        //console.log(e.target.parentNode.parentNode.parentNode);
+        e.target.style.visibility = 'hidden';
+
+      } catch(ex) {
+        console.log(ex);
+      }
+
+  }
+
+  //push value to the object.
+  function pushobj(fname, price, qty, butid) {
+      var obj = {
+        'fname' : fname,
+        'price' : price,
+        'qty' : qty,
+        'butid': butid
+      };
+      localStorage.count++;
+      localStorage.setItem(localStorage.count,JSON.stringify(obj));
+
+
+  }
+
+  //to be deleted after testing.
+  document.getElementById('clear').addEventListener("click", function(){
+      emptyop(document.getElementById('container'),document.getElementById('total'),true);
+  });
+  //display the calculation bar.
+  function caldisp() {
+      var divco = document.getElementById('container');
+      var ptotal = document.getElementById('total');
+      if((typeof localStorage.count == 'undefined') || (localStorage.count == 0)) {
+        emptyop(divco, ptotal,false);
+      }
+      emptyop(divco, ptotal,false);
+      var totale = 0;
+      for(var i=1; i<=localStorage.count; i++) {
+        // console.log('inside caldisp');
+        // // console.log(localStorage[localStorage.count]);
+        // console.log('i is '+i);
+        var theobj = JSON.parse(localStorage[i]);
+        // console.log(theobj);
+        totale += theobj.price * theobj.qty;
+        var divs = document.createElement('div');
+        divs.setAttribute('class','topopbut');
+        divs.setAttribute('id',i);
+        var spans = document.createElement('span');
+        spans.setAttribute('class',"pull-right");
+        var price = document.createTextNode(theobj.price);
+        var delbut = document.createElement('button');
+        delbut.setAttribute('class',"delbut");
+        delbut.setAttribute('id',theobj.butid+'_'+i);
+        delbut.appendChild(document.createTextNode('x'));
+        var ptag = document.createElement('p');
+        ptag.appendChild(document.createTextNode(theobj.fname));
+        var totaltag = document.getElementById('total');
+        totaltag.innerHTML = '';
+        totaltag.appendChild(document.createTextNode(totale));
+
+        spans.appendChild(price);
+        spans.appendChild(delbut);
+        divs.appendChild(spans);
+        divs.appendChild(ptag);
+        divco.insertBefore(divs,divco.firstChild);
+        //adding event listener
+        delbut.addEventListener("click",delfunct);
+
+      }
+  }
+
+  //listener function for delbut.
+
+  function delfunct(e){
+    var id_co = e.target.id;
+    id_co = id_co.split('_');
+    var id = id_co[0];
+    var counter = id_co[1];
+    console.log(id_co);
+    delelement(parseInt(counter));
+    caldisp();
+    document.getElementById(id).style.visibility = 'visible';
+  }
+  //populate nothing.
+  function emptyop(divco,ptag,status) {
+      while(divco.firstChild) {
+          divco.removeChild(divco.lastChild);
+      }
+      if(ptag.firstChild)
+        ptag.removeChild(ptag.firstChild);
+      if(status) {
+          window.localStorage.clear();
+          localStorage.count = 0;
+      }
+  }
+//complete function of deleting the
+  function delelement(counter) {
+    try{
+        console.log('inside delelement');
+        console.log('counter is '+ counter);
+        deletags(counter);
+        for(var i = parseInt(counter); i< localStorage.count; i++) {
+            var j = i+1;
+            console.log('j is '+j);
+            console.log('count is '+ localStorage.count);
+            console.log('i is '+i);
+            console.log('ith one is '+ localStorage[i]);
+            console.log('i+1th one is '+ localStorage[j]);
+            localStorage[i] = localStorage[i+1];
+        }
+        delete localStorage[localStorage.count];
+        localStorage.count--;
+    }catch(e) { console.log(e.message); }
+
+  }
+
+//delete the corresponding added menu div in calculation div
+  function deletags(counter) {
+    try{
+      var divtodel = document.getElementById(counter);
+      //following line of code is to obtain the qty*price to deduct from total
+      var obj = JSON.parse(localStorage[counter]);
+      var pminus = obj.qty * obj.price;
+      while(divtodel.firstChild) {
+        divtodel.removeChild(divtodel.lastChild);
+      }
+      var ptotal = document.getElementById('total');
+      var pvalue = ptotal.innerHTML - pminus;
+      ptotal.innerHTML = '';
+      ptotal.appendChild(document.createTextNode(pvalue));
+    }catch(e) { console.log(e.message); }
+
+  }
+
+</script>
 </body>
 </html>
