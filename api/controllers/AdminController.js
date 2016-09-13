@@ -57,7 +57,15 @@ module.exports = {
 			});
 		});
 	},
-
+	'createwhot' : function(req, res, next) {
+		City.find({}, function(err, cires){
+			User.findOne(req.session.uid, function(err, admin){
+				res.view('admin/createwhot',{layout:'layouts/admin',
+											adminobj:admin,
+											cityobj:cires});
+				});
+		});
+	},
 	'viewH' : function(req, res, next) {
 		console.log('here in viewH');
 		Hotel.find({}, function(err,hotel){

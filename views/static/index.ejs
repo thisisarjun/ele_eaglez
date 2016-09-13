@@ -98,8 +98,22 @@
                       <select class="form-control dropdownSearch" id="category" name="cuisine">
                         <option value="">Select Cuisine</option>
                 <% var arrlen = cuisobj.length;
-                for(var i=0;i<cuisobj.length;i++){ %>
+                var allobj;
+                for(var i=0;i<cuisobj.length;i++){
+                    if(i == 0) {
+                      allobj = cuisobj[i].name;
+                    }
+                    else
+                      allobj = allobj+"~"+cuisobj[i].name;
+                    %>
                         <option value="<%= cuisobj[i].name %>"><%= cuisobj[i].name %></option>
+                    <%
+                      if(i == cuisobj.length-1) {
+                      %>
+                      <option value = "<%= allobj %>">All</option>
+                      <%
+                    }
+                    %>
                     <% } %>
                         </select>
 

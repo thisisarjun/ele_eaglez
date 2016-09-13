@@ -10,7 +10,7 @@ module.exports = {
 			var name = req.param('name').toString().trim();
 			var nameconfi = req.param('nameconfi').toString().trim();
 			if( name == nameconfi ) {
-				City.create({name:name}, function(err){
+				City.create({name:name}, function(err, result){
 					if(err) {
 						req.session.flash = {
 							'message' : 'error in data loading, possible dupicate entry',
@@ -20,13 +20,16 @@ module.exports = {
 						return;
 					}
 					else {
-						console.log('ok successfully');
+						Whatcount.create({cid:result.id,
+															counter:1}, function(err){
+																if(err) {
+																	console.log(err);
+																}
+													});
 						req.session.flash = {
 							'message' : 'successfully added',
 							'color' : 1
 						};
-						console.log('before leaving');
-						console.log(req.session.flash);
 						res.redirect('admin/createc');
 						return;
 					}
@@ -56,7 +59,18 @@ module.exports = {
 						if(err) {
 							return console.log(err);
 						}
-						res.redirect('/admin/viewc');
+						Whatcount.destroy({'cid':cid}, function(err){
+								if(err) {
+									return console.log(err);
+								}
+								Hotel.destroy({'city':cid}, function(err){
+									if(err) {
+										return console.log(err);
+									}
+									res.redirect('/admin/viewc');
+								});
+
+						});
 					});
 				});
 
