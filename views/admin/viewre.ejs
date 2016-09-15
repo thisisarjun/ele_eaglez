@@ -415,7 +415,6 @@ background-color: #9F0011;
       if(httpRequest.readyState == 4) {
         if(httpRequest.status == 200) {
           console.log('ok cool');
-          console.log(httpRequest.responseText);
           deltable(tabletofil);
           repobj = JSON.parse(httpRequest.responseText);
           addtable(repobj.objects);
@@ -445,13 +444,15 @@ background-color: #9F0011;
   }
 
   function addrow(obj) {
+    var d = new Date();
+    d.getDate(obj.doo);
     var trs = document.createElement('tr');
     var tdid = document.createElement('td');
     var tdate = document.createElement('td');
     var thname = document.createElement('td');
     var tamt = document.createElement('td');
     tdid.appendChild(document.createTextNode(obj.id));
-    tdate.appendChild(document.createTextNode(obj.doo));
+    tdate.appendChild(document.createTextNode(d));
     thname.appendChild(document.createTextNode(obj.hname));
     tamt.appendChild(document.createTextNode(obj.amt));
     trs.appendChild(tdid);

@@ -32,22 +32,11 @@ module.exports = {
 	},
 	'search' : function(req, res, next) {
 		//only from static index or somewhere ?nwo=1,  the city and area can be set.
-		console.log('req parameters start');
-		console.log(req.param('city'));
-		console.log(req.param('area'));
-		console.log('req parameters end');
-		console.log('session parameters start');
-		console.log(req.session.city);
-		console.log(req.session.area);
-		console.log('session parameters end');
+
 		if( (typeof req.session.city == "undefined" && typeof req.session.area == 'undefined') || req.param('nwo') == 1 ) {
 				req.session.city = req.param('city');
 				req.session.area = req.param('area');
 		}
-		console.log('session parameters check 2 start');
-		console.log(req.session.city);
-		console.log(req.session.area);
-		console.log('session parameters end');
 		var cuisine;
 		//cuisine selection, change between all or specific.
 		if(req.param('cuisine').indexOf("~") >= 0) {
@@ -65,13 +54,6 @@ module.exports = {
 						'cuisine' : cuisine,
 						'city' : req.session.city
 						}).exec(function (err,result){
-						console.log('*****************');
-						console.log('*****************');
-						console.log('*****************');
-						console.log(result);
-						console.log('*****************');
-						console.log('*****************');
-						console.log('*****************');
 						req.session.search = _.clone(result);
 						req.session.allcuisine = _.clone(allcuisine);
 						req.session.hocount = result.length;
